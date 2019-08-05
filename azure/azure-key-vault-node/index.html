@@ -171,12 +171,13 @@
                 <h1 id="azure-function-to-retrieve-a-secret-from-azure-key-vault-using-nodejs">Azure Function to retrieve a secret from Azure Key Vault using nodejs</h1>
 <p><span style="color:grey">Published on 05/08/2019</span></p>
 <blockquote>
-<p>node js solution using <code>azure-keyvault</code> <code>ms-rest-azure</code></p>
+<p>nodejs solution using <code>azure-keyvault</code> <code>ms-rest-azure</code></p>
 </blockquote>
-<p>There are often times when you want to store a token or a connection string in a safe location in the cloud to be accessed by your application safely. I recently worked on an app which uses a token to consume an api and although you can store this in different ways, you might want to secure it in a way you can control their distribution and make sure it is loosely available to be meddled with.</p>
+<p>There are often times when you want to store a token or a connection string in a safe location in the cloud to be accessed by your application safely. I recently worked on an app which uses a token to consume an api and although you can store this in different ways, you might want to secure it in a way you can control their distribution and make sure it is not freely available to be meddled with.</p>
 <p><strong>Azure Key Vault</strong> helps solve this problem by safely securing and tighlty controlling your access tokens, passwords, certificates, API keys and other secrets.</p>
-<p>I have seen few articles and blogs on using Azure functions or web apps to consume Azure Key Vault, but it was a bit of a pain to get it finally working in <code>NodeJs</code> with so much getting changed with respect to npm packages or documentation. I decided to write an Azure Function which was fairly generic to get all the secrets I want to be retrieved in my applications.</p>
-<p>The SDK for node <a href="https://github.com/Azure-Samples/key-vault-node-getting-started/blob/master/index.js">key-vault-node-getting-started</a> is a great place to start but I had a different login mechanism. I wanted to use <code>loginWithServicePrincipalSecret</code> which uses app registration in Azure AD and we can pass clientid, secret and domain/tenant guid to authenticate.</p>
+<p>I have seen few articles and blogs on using C# functions or web apps which interact with Azure Key Vault, but it was a bit of a pain to get it finally working in <code>NodeJs</code> with so much getting changed with respect to npm packages or documentation. I decided to write an Azure Function which was fairly generic to retrieve secret I want to use in my applications.</p>
+<p>This also opens up the possibilty to do many other actions with Key Vault objects like setting values as well.</p>
+<p>The SDK for node <a href="https://github.com/Azure-Samples/key-vault-node-getting-started/blob/master/index.js">key-vault-node-getting-started</a> is a great place to start but I had a different login mechanism. I wanted to use <code>loginWithServicePrincipalSecret</code> which uses app registration in Azure AD so we can pass clientid, secret and domain/tenant guid to authenticate.</p>
 <p>Here is a simplified but working version of an Azure Function which uses the above mechanism to retrieve secrets from Azure Key Vault.</p>
 <h3 id="create-azure-key-vault-secret">Create Azure Key Vault &amp; Secret</h3>
 <p>Create an Azure Key Vault if not already created. Add a secret you want to retrieve later using Azure Function.
