@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Azure Key Vault NodeJs - Rabia Williams</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Azure Key Vault NodeJs";
+    var mkdocs_page_input_path = "azure/azure-key-vault-node.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Rabia Williams</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Teams</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../teams/teams-list/">Teams directory</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">SPFX</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../spfx/library-component/">1.8.0 library component</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">OfficeCLI</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Azure</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Azure Key Vault NodeJs</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#azure-function-to-retrieve-a-secret-from-azure-key-vault-using-nodejs">Azure Function to retrieve a secret from Azure Key Vault using nodejs</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#create-azure-key-vault-secret">Create Azure Key Vault &amp; Secret</a></li>
+        
+            <li><a class="toctree-l4" href="#create-an-azure-function">Create an Azure Function</a></li>
+        
+            <li><a class="toctree-l4" href="#set-up-service-principal-in-aad">Set up Service Principal in AAD</a></li>
+        
+            <li><a class="toctree-l4" href="#access-policy-in-key-vault">Access policy in Key Vault</a></li>
+        
+            <li><a class="toctree-l4" href="#update-the-azure-function-with-code-to-get-secret-from-key-vault">Update the Azure function with code to get Secret from Key Vault</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deployment-gates/">Deployment gates</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developer</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../developer/developer-life-made-easy/">Developer life made easy</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Rabia Williams</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Azure &raquo;</li>
+        
+      
+    
+    <li>Azure Key Vault NodeJs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="azure-function-to-retrieve-a-secret-from-azure-key-vault-using-nodejs">Azure Function to retrieve a secret from Azure Key Vault using nodejs</h1>
+<p><span style="color:grey">Published on 05/08/2019</span></p>
+<blockquote>
+<p>node js solution using <code>azure-keyvault</code> <code>ms-rest-azure</code></p>
+</blockquote>
+<p>There are often times when you want to store a token or a connection string in a safe location in the cloud to be accessed by your application safely. I recently worked on an app which uses a token to consume an api and although you can store this in different ways, you might want to secure it in a way you can control their distribution and make sure it is loosely available to be meddled with.</p>
+<p><strong>Azure Key Vault</strong> helps solve this problem by safely securing and tighlty controlling your access tokens, passwords, certificates, API keys and other secrets.</p>
+<p>I have seen few articles and blogs on using Azure functions or web apps to consume Azure Key Vault, but it was a bit of a pain to get it finally working in <code>NodeJs</code> with so much getting changed with respect to npm packages or documentation. I decided to write an Azure Function which was fairly generic to get all the secrets I want to be retrieved in my applications.</p>
+<p>The SDK for node <a href="https://github.com/Azure-Samples/key-vault-node-getting-started/blob/master/index.js">key-vault-node-getting-started</a> is a great place to start but I had a different login mechanism. I wanted to use <code>loginWithServicePrincipalSecret</code> which uses app registration in Azure AD and we can pass clientid, secret and domain/tenant guid to authenticate.</p>
+<p>Here is a simplified but working version of an Azure Function which uses the above mechanism to retrieve secrets from Azure Key Vault.</p>
+<h3 id="create-azure-key-vault-secret">Create Azure Key Vault &amp; Secret</h3>
+<p>Create an Azure Key Vault if not already created. Add a secret you want to retrieve later using Azure Function.
+I don't have to elaborate the documentation for this here is pretty much up to date <a href="https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/key-vault/quick-create-portal.md">Key Vault - Quick create through portal</a></p>
+<h3 id="create-an-azure-function">Create an Azure Function</h3>
+<p>Create a basic nodejs Azure Function , see steps below</p>
+<p>In Azure portal, search for Function App, create</p>
+<p><img alt="function-app.png" src="../images/function-app.png" /></p>
+<p>Now add a new function , I have set up my visual studio code with Azure extension which allows me to add new functions from the application, feel free to use cli if that suits you.</p>
+<p><img alt="create-function.png" src="../images/create-function.png" /></p>
+<p><img alt="javascript.png" src="../images/javascript.png" /></p>
+<p><img alt="Http-trigger.png" src="../images/Http-trigger.png" /></p>
+<p><img alt="function-name.png" src="../images/function-name.png" /></p>
+<p><img alt="type.png" src="../images/type.png" /></p>
+<p>This is now a basic function which was provided by the scaffolding, let's work with this for now for setting up communication between the Azure Function and the Key Vault.</p>
+<p><img alt="default-code.png" src="../images/default-code.png" /></p>
+<p>Deploy this function and then let us get back to the portal for further configurations.</p>
+<h3 id="set-up-service-principal-in-aad">Set up Service Principal in AAD</h3>
+<p>Since I am using <code>loginWithServicePrincipalSecret</code> authentication mechanism , I need to set it up.
+Create a new application in Azure Active directory, here <code>Rabia-App-Key-Vault</code>
+Make a note of Client ID, Tenant ID and create a Secret and make a note of it too. We will need this later in the function.</p>
+<p><a href="https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal">howto-create-service-principal-portal</a></p>
+<h3 id="access-policy-in-key-vault">Access policy in Key Vault</h3>
+<p>We need to update the access policy in Azure Key Vault which gives our newly registered app in AAD access to read or write anything in Key Vault.</p>
+<p>You can select what permissions you grant the app from below screen.</p>
+<p><img alt="Access" src="../images/policy.png" /></p>
+<p>See how the Principal chosen is the Service Principal we set up in AAD here <code>Rabia-App-Key-Vault</code></p>
+<p><img alt="Access Policy" src="../images/principal.png" /></p>
+<p>With this we have established all the necessary wiring needed between <code>Azure Function -&gt; AAD App -&gt; Key Vault</code>.</p>
+<p>Azure function will use AAD app to authenticate and it will be able to communicate with the KeyVault since it has access to get secrets from it.</p>
+<h3 id="update-the-azure-function-with-code-to-get-secret-from-key-vault">Update the Azure function with code to get Secret from Key Vault</h3>
+<p>Here is the code snippet for the Azure Function.</p>
+<pre><code>import { AzureFunction, Context, HttpRequest } from &quot;@azure/functions&quot;;
+import * as KeyVault from 'azure-keyvault';
+import * as msrestazure from &quot;ms-rest-azure&quot;;
+
+
+
+var clientId = &lt;clientidfromAAD&gt;;
+var clientSecret = &lt;clientsecretfromAAD&gt;;
+var tenantId = &lt;tenantidfromAAD&gt;
+//move the version as parameter in the Azure function
+var secretVersion = &lt;secretVersionfromAzureKeyVault&gt;;
+
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise&lt;void&gt; {
+    context.log('Get My Super Secret function processed a request.');
+    const secretname = (req.query.secretname || (req.body &amp;&amp; req.body.secretname));
+
+    if (secretname) {
+        //authenticate using AAD
+        let credentials = await msrestazure.loginWithServicePrincipalSecret(clientId, clientSecret, tenantId);
+        //convert to KeyVaultCredentials : this area threw errors while following the SDK, had to convert the //credentials to successfully pass it to KeyVaultClient
+        let keyVaultCredentials = new msrestazure.KeyVaultCredentials(null, credentials);
+        const keyVaultClient = new KeyVault.KeyVaultClient(keyVaultCredentials);
+        var vaultUri = &quot;https://xxx-keyvault-demo.vault.azure.net/&quot;;
+        let response = await keyVaultClient.getSecret(vaultUri, secretname, secretVersion);
+        context.log(&quot;Successfully retrieved my secret&quot;);
+        context.res = {
+            body: JSON.stringify(response)
+        };
+        context.done(null, response);
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: &quot;Please pass a secretname on the query string or in the request body&quot;
+        };
+    }
+};
+
+export default httpTrigger;
+</code></pre>
+
+<p>Secret Version can be found where you have created the secret.
+<img alt="version" src="../images/version.png" /></p>
+<p>Now after deploying the updated code, let's access our Azure function from a browser, get the function URL from the portal and append <code>&amp;secretname=&lt;insertyoursecretname&gt;</code> into the url</p>
+<p>here is the result often the value holds the secret value.</p>
+<p><img alt="runfunction.png" src="../images/runfunction.png" /></p>
+<p>Happy azuring your way to safety and security :) #shareingiscaring</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../deployment-gates/" class="btn btn-neutral float-right" title="Deployment gates">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../officecli/grant-api-permission/" class="btn btn-neutral" title="Grant API permissions using Office365 CLI"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../officecli/grant-api-permission/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../deployment-gates/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
