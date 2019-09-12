@@ -62,7 +62,7 @@
     <a class="current" href="./">O365 Management api</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#using-o365-management-api-to-get-creation-events">Using O365 management api to get creation events</a></li>
+    <li class="toctree-l3"><a href="#using-o365-management-activity-api-to-track-microsoft-teams-creation">Using O365 management activity API to track Microsoft Teams creation</a></li>
     
         <ul>
         
@@ -166,18 +166,18 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="using-o365-management-api-to-get-creation-events">Using O365 management api to get creation events</h1>
+                <h1 id="using-o365-management-activity-api-to-track-microsoft-teams-creation">Using O365 management activity API to track Microsoft Teams creation</h1>
 <blockquote>
-<p>Getting Microsoft Teams Team creation audit log into Azure Queue storage </p>
+<p>Getting Microsoft Teams Team creation information into Azure Queue storage </p>
 </blockquote>
 <p><span style="color:grey">Published on 12/09/2019</span></p>
-<p>I have been looking into <strong>O365 Management API</strong> for a few days now to understand how to best retrieve audit log events from O365.</p>
-<p>Audit log search in the portal is great but it has it's limitations, the data has to be exported and used.
+<p>I have been looking into <strong>O365 Management Activity API</strong> for a few days now to understand how to best retrieve certain activities from O365.</p>
+<p>Audit log search in the portal is great but it has it's problems, the data has to be exported and used.
 I was looking into ways we can transfer this data automatically to some place else where it can be retained and used for monitoring, analysis and reporting (Obviously there will be governance applied to where this data is)</p>
 <p>I was at the Power Platform Summit in Melbourne this year and was inspired by the presentation from Microsoft MVP <a href="https://twitter.com/paulculmsee?lang=en">Paul Culmsee</a> on audit logs and it's API. 
 With solutions using these apis, companies will able to create solutions to have greater visibilty and control over the activities of their contents.</p>
 <p>My solution is a timer based C# application , You can choose it to be a a timer based Azure function , console app running in Azure Function to run exe or a webjob. The idea is for this app to run daily to pull data using O365 management api.</p>
-<p>My solution tracks Teams activities (Teams Creation) into a storage which can then become a log forever, since,
+<p>My solution tracks Teams activities (Teams Creation) into a storage which can then become a log 'forever', since,
 <div style="background:#E0F2FF;border:1px solid #E0F2FF; border-radius:6px; padding:1rem;" >
 - Audit records are retained only for 90 days for <strong>Office365 E3</strong> <br/>
 - Audit records are retained only for 90 days for <strong>Office365 E5</strong> however it can eventually be available for a year for E5 users and users with E3 and an Office 365 Advanced Compliance add-on license.
