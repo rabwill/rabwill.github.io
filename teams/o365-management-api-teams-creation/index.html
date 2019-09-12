@@ -197,29 +197,25 @@ With solutions using these apis, companies will able to create solutions to have
 <p>Before you can use the api to read blob contents you have to subscribe to the specified content type.</p>
 <p>Here I am subscribing to <code>Audit.General</code> to get <code>Microsoft Teams events</code>, there are other content types too like SharePoint, Exchange etc.</p>
 <p>See code to start a subscription.</p>
-<blockquote ><pre style="background:black" >
-
-<span style="color:green" > /* authentication*/ </span>
-<code style="color:white">
-       public static async Task<AuthenticationResult> Authenticate(AuthenticationContext ctx, string resourceUri, ClientCredential cred)
+<pre><code>       public static async Task&lt;AuthenticationResult&gt; Authenticate(AuthenticationContext ctx, string resourceUri, ClientCredential cred)
         {
             AuthenticationResult res = await ctx.AcquireTokenAsync(resourceUri, cred).ConfigureAwait(false);
             return res;
 
         }
 
-  <span style="color:green" > /* This function creates new subscription for audit logs*/ </span>
+ /* This function creates new subscription for audit logs*/ 
 
         public async Task CreateSubscription(string clientID, string clientSecret, string tenantID)
         {
             ClientCredential cred = new ClientCredential(clientID, clientSecret);
-            AuthenticationContext ctx = new AuthenticationContext("https://login.windows.net/" + tenantID);
-            string resourceUri = "https://manage.office.com";
+            AuthenticationContext ctx = new AuthenticationContext(&quot;https://login.windows.net/&quot; + tenantID);
+            string resourceUri = &quot;https://manage.office.com&quot;;
             AuthenticationResult res = await Authenticate(ctx, resourceUri, cred);
-            HttpWebRequest req = HttpWebRequest.Create("https://manage.office.com/api/v1.0/" + tenantID + "/activity/feed/subscriptions/start?contentType=Audit.General") as HttpWebRequest;
-            req.Headers.Add("Authorization", "Bearer " + res.AccessToken);
-            req.ContentType = "application/json; utf-8";
-            req.Method = "POST";
+            HttpWebRequest req = HttpWebRequest.Create(&quot;https://manage.office.com/api/v1.0/&quot; + tenantID + &quot;/activity/feed/subscriptions/start?contentType=Audit.General&quot;) as HttpWebRequest;
+            req.Headers.Add(&quot;Authorization&quot;, &quot;Bearer &quot; + res.AccessToken);
+            req.ContentType = &quot;application/json; utf-8&quot;;
+            req.Method = &quot;POST&quot;;
 
             using (var streamWriter = req.GetRequestStream())
             {
@@ -231,8 +227,7 @@ With solutions using these apis, companies will able to create solutions to have
             StreamReader reader = new StreamReader(dataStream);
             string responseFromServer = reader.ReadToEnd();
         }
-</code>
-</pre></blockquote>
+</code></pre>
 
 <blockquote>
 <p>Once subscribed, wait upto 12 hours for it to come into effect for me it did not take 12 hours but I guess it depends.</p>
@@ -248,25 +243,22 @@ With solutions using these apis, companies will able to create solutions to have
     - Workload </p>
 <p>Please note that you can pass <code>starttime</code> and <code>endtime</code> in the api, but it should not be more than 24 hours apart and starttime not more than 7 days in the past. which is why it is a good idea to make this application a timer based job/ function that runs daily to fetch logs.
 Default is last 24 hours.</p>
-<blockquote ><pre style="background:black">
-<code style="color:white">
-      <span style="color:green" > 
-       /* This function reads through the audit logs and get their content uri and performs read function to process the content uri links as audit events
-       */ </span>
+<pre><code>       /* This function reads through the audit logs and get their content uri and performs read function to process the content uri links as audit events
+       */ 
         public async Task ListContent(string clientID, string clientSecret, string tenantID)
         {
             DateTime starteDate = new DateTime(2019, 9, 11, 0, 0, 0);
             DateTime endDate = new DateTime(2019, 09, 11, 21, 0, 0, 0);
-            string strstartDate = starteDate.ToString("yyyy-MM-ddTHH:mm:ss");
-            string strendDate = endDate.ToString("yyyy-MM-ddTHH:mm:ss");
+            string strstartDate = starteDate.ToString(&quot;yyyy-MM-ddTHH:mm:ss&quot;);
+            string strendDate = endDate.ToString(&quot;yyyy-MM-ddTHH:mm:ss&quot;);
             ClientCredential cred = new ClientCredential(clientID, clientSecret);
-            AuthenticationContext ctx = new AuthenticationContext("https://login.windows.net/" + tenantID);
-            string resourceUri = "https://manage.office.com";
+            AuthenticationContext ctx = new AuthenticationContext(&quot;https://login.windows.net/&quot; + tenantID);
+            string resourceUri = &quot;https://manage.office.com&quot;;
             AuthenticationResult res = await Authenticate(ctx, resourceUri, cred);
-             HttpWebRequest req = HttpWebRequest.Create("https://manage.office.com/api/v1.0/" + tenantID + "/activity/feed/subscriptions/content?contentType=Audit.General&amp;startTime=" + strstartDate + "&amp;endTime=" + strendDate) as HttpWebRequest;
-            req.Headers.Add("Authorization", "Bearer " + res.AccessToken);
-            req.ContentType = "application/json";
-            req.Method = "GET";
+             HttpWebRequest req = HttpWebRequest.Create(&quot;https://manage.office.com/api/v1.0/&quot; + tenantID + &quot;/activity/feed/subscriptions/content?contentType=Audit.General&amp;amp;startTime=&quot; + strstartDate + &quot;&amp;amp;endTime=&quot; + strendDate) as HttpWebRequest;
+            req.Headers.Add(&quot;Authorization&quot;, &quot;Bearer &quot; + res.AccessToken);
+            req.ContentType = &quot;application/json&quot;;
+            req.Method = &quot;GET&quot;;
             HttpWebResponse response = (HttpWebResponse)req.GetResponse();
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
@@ -274,14 +266,14 @@ Default is last 24 hours.</p>
             //Getting all notifications as JArray
             JArray notifications = JArray.Parse(responseFromServer.ToString());
             var startTime = DateTime.Now;
-            Console.WriteLine("Total Notifications: " + notifications.Count + " === Start Time: " + startTime);
+            Console.WriteLine(&quot;Total Notifications: &quot; + notifications.Count + &quot; === Start Time: &quot; + startTime);
             foreach (var notification in notifications)
             {
-                await ReadContent(clientID, clientSecret, tenantID, notification["contentUri"].ToString());
+                await ReadContent(clientID, clientSecret, tenantID, notification[&quot;contentUri&quot;].ToString());
 
             }
             var endTime = DateTime.Now;
-            Console.WriteLine(" === End Time: " + DateTime.Now);
+            Console.WriteLine(&quot; === End Time: &quot; + DateTime.Now);
             Console.ReadKey();
         }
 
@@ -289,43 +281,42 @@ Default is last 24 hours.</p>
         {
 
             ClientCredential cred = new ClientCredential(clientID, clientSecret);
-            AuthenticationContext ctx = new AuthenticationContext("https://login.windows.net/" + tenantID);
-            string resourceUri = "https://manage.office.com";
+            AuthenticationContext ctx = new AuthenticationContext(&quot;https://login.windows.net/&quot; + tenantID);
+            string resourceUri = &quot;https://manage.office.com&quot;;
             AuthenticationResult res = await Authenticate(ctx, resourceUri, cred);
             //Read the Events from the contentUri
             HttpWebRequest req = HttpWebRequest.Create(contenturi) as HttpWebRequest;
-            req.Headers.Add("Authorization", "Bearer " + res.AccessToken);
-            req.ContentType = "application/json";
-            req.Method = "GET";
+            req.Headers.Add(&quot;Authorization&quot;, &quot;Bearer &quot; + res.AccessToken);
+            req.ContentType = &quot;application/json&quot;;
+            req.Method = &quot;GET&quot;;
             HttpWebResponse response = (HttpWebResponse)req.GetResponse();
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
             string responseFromServer = reader.ReadToEnd();
             JArray auditLogEvents = JArray.Parse(responseFromServer.ToString());
-            List<Message> auditedItems = (auditLogEvents).Select(x => new Message
+            List&lt;Message&gt; auditedItems = (auditLogEvents).Select(x =&gt; new Message
             {
-                Operation = (string)x["Operation"],
-                CreationTime = (DateTime)x["CreationTime"],
-                UserId = (string)x["UserId"],
-                TeamName = (string)x["TeamName"],
-                TeamGuid = (string)x["TeamGuid"],
-                Workload = (string)x["Workload"]
-            }).Where(y => y.Workload == "MicrosoftTeams" && y.Operation == "TeamCreated").ToList();
+                Operation = (string)x[&quot;Operation&quot;],
+                CreationTime = (DateTime)x[&quot;CreationTime&quot;],
+                UserId = (string)x[&quot;UserId&quot;],
+                TeamName = (string)x[&quot;TeamName&quot;],
+                TeamGuid = (string)x[&quot;TeamGuid&quot;],
+                Workload = (string)x[&quot;Workload&quot;]
+            }).Where(y =&gt; y.Workload == &quot;MicrosoftTeams&quot; &amp;&amp; y.Operation == &quot;TeamCreated&quot;).ToList();
 
-            Console.WriteLine("Total Audit Log Events For Teams Creation: " + auditedItems.Count);
+            Console.WriteLine(&quot;Total Audit Log Events For Teams Creation: &quot; + auditedItems.Count);
             foreach (var auditedItem in auditedItems)
             {
                 //Store in azure queue
                 CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
                 CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-                CloudQueue queue = queueClient.GetQueueReference("rabiateamscreationqueue");
+                CloudQueue queue = queueClient.GetQueueReference(&quot;rabiateamscreationqueue&quot;);
                 var asyncQueue = AzureQueue.SendMessageAsync(queue, JsonConvert.SerializeObject(auditedItem));
                 asyncQueue.Wait();
 
             }
         }
-</code>
-</pre></blockquote>
+</code></pre>
 
 <h3 id="azure-queue-as-storage">Azure queue as storage</h3>
 <p>At the moment I have chosen <code>Azure Queue</code> as my storage option, since it is easy to set up and I can trigger events from it (future blog?)</p>
