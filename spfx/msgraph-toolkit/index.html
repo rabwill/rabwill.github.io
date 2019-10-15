@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Grant API permissions using Office365 CLI - Rabia Williams</title>
+  <title>Microsoft Graph Toolkit - Rabia Williams</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Grant API permissions using Office365 CLI";
-    var mkdocs_page_input_path = "officecli/grant-api-permission.md";
+    var mkdocs_page_name = "Microsoft Graph Toolkit";
+    var mkdocs_page_input_path = "spfx/msgraph-toolkit.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -74,11 +74,23 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../spfx/library-component/">1.8.0 library component</a>
+    <a class="" href="../library-component/">1.8.0 library component</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../spfx/msgraph-toolkit/">Microsoft Graph Toolkit</a>
+    <a class="current" href="./">Microsoft Graph Toolkit</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#spfx-application-customizer-to-display-agenda-using-microsoft-graph-toolkit">SPFx Application customizer to display agenda using Microsoft Graph Toolkit</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#my-events-application-customizer">My Events Application customizer</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -87,25 +99,9 @@
 		
     <span class="caption-text">OfficeCLI</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Grant API permissions using Office365 CLI</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#grant-api-permissions-using-office-365-cli">Grant API Permissions using Office 365 CLI</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#the-problem">The Problem</a></li>
-        
-            <li><a class="toctree-l4" href="#the-saviour-office-365-cli">The Saviour- Office 365 CLI</a></li>
-        
-            <li><a class="toctree-l4" href="#solution-specific-api-permission">Solution Specific API Permission</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
                 </li>
     </ul>
 	    </li>
@@ -158,11 +154,11 @@
     
       
         
-          <li>OfficeCLI &raquo;</li>
+          <li>SPFX &raquo;</li>
         
       
     
-    <li>Grant API permissions using Office365 CLI</li>
+    <li>Microsoft Graph Toolkit</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -172,33 +168,44 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="grant-api-permissions-using-office-365-cli">Grant API Permissions using Office 365 CLI</h1>
-<p><span style="color:grey">Published on 12/2/2018</span></p>
-<p>Recently, I developed a web part that uses Microsoft Graph Rest API which gets information from Outlook of the current logged in user and displays them on home page of the intranet.
-I created an SPFX web part using REACT and within hours spun up a new web part. It was easy peasy thanks to Yeoman generator and the awesome samples in GitHub
-After deploying my app solution into the App Catalogue however there was this annoying step that had to be done.
-Grant API Permission to the web part to use certain APIs.
-<img alt="permission" src="../images/permission.png" /></p>
-<p>If you go to the API management window, you will see the access request for it which you have to approve so the webpart can use these APIs
-<img alt="mgmt" src="../images/apimgmt.png" /></p>
-<h2 id="the-problem">The Problem</h2>
-<p>Fine, for now we will approve this permission and everything will work perfectly (although it may not seem so obvious at first but we just granted permission for these APIs on a tenant level and not just for the solution we deployed) . Well, living on the edge for now and it's all good.
-But this permission request saga does not end here. Each time you deploy a package, roll out a fix etc, this list keeps on growing with access permission requests. Although you don't really have to action it, it will keep on growing this list.</p>
-<p>Now that's inconvenient and if you have OCD like me, this growing list will make you sleepless until you finally get used to it.
-Another way to avoid this step altogether is to grant access on a tenant level and avoid having those permission request bits in your web part.
-Again all this feels a bit hack-y if you ask me.</p>
-<h2 id="the-saviour-office-365-cli">The Saviour- Office 365 CLI</h2>
-<p>The latest version of the Office 365 CLI  let you grant API permission more easily. Here is how. </p>
-<pre><code>o365  spo serviceprincipal grant add --resource 'Microsoft Graph' --scope 'Mail.Read'
-</code></pre>
+                <h1 id="spfx-application-customizer-to-display-agenda-using-microsoft-graph-toolkit">SPFx Application customizer to display agenda using Microsoft Graph Toolkit</h1>
+<p><span style="color:grey">Published on 15/10/2019</span></p>
+<p>Recently <a href="https://developer.microsoft.com/en-us/graph/blogs/the-microsoft-graph-toolkit-is-now-generally-available/">Microsoft Graph Toolkit</a> went GA and I thought this is the perfect time to explore/read about the toolkit and what it offers.</p>
+<p>A nice set of UI components with M365 look and feel readily availbale which integrates with Microsoft Graph, multiple providers for seemless authentication and templating options for the components are the prime attractions in the toolkit.</p>
+<p>A very detailed first look can be found in this blog by <a href="https://spblog.net/post/2019/10/01/exploring-microsoft-graph-toolkit">Sergei Sergeev</a>, one of my favourite technical bloggers.</p>
+<h2 id="my-events-application-customizer">My Events Application customizer</h2>
+<p>I have quickly created an SPFx Application customizer in under 30 mintues to get the below component up and running and I have not touched the UX part of it!</p>
+<p><img alt="image-events" src="../images/my-events.png" /></p>
+<p>How easy was that?</p>
+<p>I have used the <code>SharePointProvider</code> to connect to the toolkit and the rest is very similar to any other react SPFx component I have created in the past.</p>
+<h3 id="pros">Pros</h3>
+<ul>
+<li>Easy to use components</li>
+<li>M365 look and feel </li>
+<li>Seemless Authentication </li>
+<li><a href="https://docs.microsoft.com/en-gb/graph/toolkit/templates">Custom templating</a></li>
+</ul>
+<h3 id="issuesunknowns">Issues/Unknowns</h3>
+<ul>
+<li>Typescript will throw an error when trying to use a component in tsx. The workaround is to define the custom element in code. <a href="https://docs.microsoft.com/en-gb/graph/toolkit/overview#react-typescript-and-tsx">Read here</a></li>
+<li>Unclear on whether React components can be used inside templates </li>
+</ul>
+<h3 id="source-code">Source code</h3>
+<p>Find source code to  <code>My events</code> application customizer here <a href="https://github.com/rabwill/msgraph-myagenda-panel">https://github.com/rabwill/msgraph-myagenda-panel</a>
+Once you package and upload solution to the app catalog make sure you approve all requested permissions from the <a href="https://docs.microsoft.com/en-us/sharepoint/dev/spfx/use-aadhttpclient?ranMID=24542&amp;ranEAID=je6NUbpObpQ&amp;ranSiteID=je6NUbpObpQ-kmj9w4KuU7fheOHCKW_QGw&amp;epi=je6NUbpObpQ-kmj9w4KuU7fheOHCKW_QGw&amp;irgwc=1&amp;OCID=AID2000142_aff_7593_1243925&amp;tduid=(ir__1joce3raiwkfr0enkk0sohzw0m2xgmanrw0ckbro00)(7593)(1243925)(je6NUbpObpQ-kmj9w4KuU7fheOHCKW_QGw)()&amp;irclickid=_1joce3raiwkfr0enkk0sohzw0m2xgmanrw0ckbro00#manage-permission-requests">API Management</a> in the admin center.
+Clone the source and try it yourself. #sharingiscaring</p>
+<!-- Global site tag (gtag.js) - Google Analytics -->
 
-<p>You can install Office 365 CLI latest version by executing </p>
-<pre><code>npm install -g @pnp/office365-cli@next
-</code></pre>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
+</script>
 
-<h2 id="solution-specific-api-permission">Solution Specific API Permission</h2>
-<p>If you thought it would have been nicer to have permissions granted only at the solution level and not tenant level then say no more..
-<a href="https://blog.mastykarz.nl/grant-api-permissions-office-365-cli/#isolated-web-parts">Isolated Web parts</a> might just be right for you. Read more about this capability to grant API permissions on a solution level thanks to the original post on the same topic by one of my heroes in SharePoint Waldek Mastykarz</p>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-146817327-1');
+</script>
               
             </div>
           </div>
@@ -206,10 +213,10 @@ Again all this feels a bit hack-y if you ask me.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../azure/azure-key-vault-node/" class="btn btn-neutral float-right" title="Azure Key Vault NodeJs">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../officecli/grant-api-permission/" class="btn btn-neutral float-right" title="Grant API permissions using Office365 CLI">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../spfx/msgraph-toolkit/" class="btn btn-neutral" title="Microsoft Graph Toolkit"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../library-component/" class="btn btn-neutral" title="1.8.0 library component"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -235,10 +242,10 @@ Again all this feels a bit hack-y if you ask me.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../spfx/msgraph-toolkit/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../library-component/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../azure/azure-key-vault-node/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../officecli/grant-api-permission/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
