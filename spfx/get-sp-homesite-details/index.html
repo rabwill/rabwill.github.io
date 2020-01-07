@@ -85,7 +85,7 @@
     <a class="current" href="./">Retrieve SP Home Site Details using API</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#retrieve-your-tenants-home-site-details-using-sharepoint-rest-api">Retrieve your tenant's Home Site Details using SharePoint Rest API</a></li>
+    <li class="toctree-l3"><a href="#sharepoint-rest-api-to-retrieve-your-tenants-home-site-details">SharePoint Rest API to retrieve your tenant's Home Site Details</a></li>
     
 
     </ul>
@@ -166,20 +166,22 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="retrieve-your-tenants-home-site-details-using-sharepoint-rest-api">Retrieve your tenant's Home Site Details using SharePoint Rest API</h1>
+                <h1 id="sharepoint-rest-api-to-retrieve-your-tenants-home-site-details">SharePoint Rest API to retrieve your tenant's Home Site Details</h1>
 <p><span style="color:grey">Published on 07/01/2020</span></p>
-<p>SharePoint Home Site which is a fairly new concept, is basically a landing site for your organization.</p>
+<p><strong>SharePoint Home Site</strong> which is a fairly new concept, is basically a landing site for your organization.</p>
 <p>There can be one Home Site per tenant, read more about SharePoint Home Sites <a href="https://www.microsoft.com/en-au/microsoft-365/blog/2019/05/21/sharepoint-home-sites-microsoft-365-innovations-intelligent-workplace/">here</a></p>
-<p>Home Sites can now be set, removed or retrieved using Powershell or <a href="https://pnp.github.io/office365-cli/">Office365 CLI</a> commands.</p>
-<p>If you want to programmatically get the Url or any basic information of the Home Site in your tenant using code you can do so by making a rest call. 
+<p>Home Site can now be set, removed or retrieved using Powershell or <a href="https://pnp.github.io/office365-cli/">Office365 CLI</a> commands.</p>
+<p>If you want to programmatically get the Url or any basic information of the Home Site in your tenant using code you can do so by making a rest call - A <code>GET</code> to be specific. 
 Here is the reference from <a href="https://s-kainet.github.io/sp-rest-explorer/#/entity/SP.SPHSite">sp-rest-explorer</a> for the API.</p>
-<p>See below rest call.</p>
+<p>I have a site in my tenant <code>https://yourtenant.sharepoint.com</code>, See below rest Url that should be used in your rest call to get Home site details.</p>
 <pre><code>https://yourtenant.sharepoint.com/_api/SP.SPHSite/Details
 
 </code></pre>
 
-<p>I have a site in my tenant <code>https://yourtenant.sharepoint.com</code>, but it can be any site URL , even the tenant admin url with <code>/_api/SP.SPHSite/Details</code> will retrieve the home site details</p>
-<p>Here you can see the result when I make the call, the detais retrieved</p>
+<p>Any site in your tenant , even the tenant admin url can be used along with the rest api path  <code>/_api/SP.SPHSite/Details</code> to retrieve the home site details
+ See below image when I have just passed the url on my browser.</p>
+<p><img alt="image2" src="../images/sp-home.png" /></p>
+<p>Here you can see the result when I make the call, the detais retrieved are -</p>
 <ul>
 <li>SiteId (Site Guid)</li>
 <li>WebId (Web Guid)</li>
@@ -187,8 +189,6 @@ Here is the reference from <a href="https://s-kainet.github.io/sp-rest-explorer/
 <li>Title (Title of the home site)</li>
 <li>Url (Url of the home site)</li>
 </ul>
-<p>See below image.</p>
-<p><img alt="image2" src="../images/sp-home.png" /></p>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
