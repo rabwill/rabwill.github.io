@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Retrieve SP Home Site Details using API - Rabia Williams</title>
+  <title>React Custom Hooks in SPFx - Rabia Williams</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Retrieve SP Home Site Details using API";
-    var mkdocs_page_input_path = "spfx/get-sp-homesite-details.md";
+    var mkdocs_page_name = "React Custom Hooks in SPFx";
+    var mkdocs_page_input_path = "spfx/reusable-custom-hooks.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -72,9 +72,21 @@
 		
     <span class="caption-text">SPFX</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../reusable-custom-hooks/">React Custom Hooks in SPFx</a>
+    <a class="current" href="./">React Custom Hooks in SPFx</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#react-reusable-custom-hooks-in-spfx">React Reusable Custom Hooks in SPFx</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#what-our-code-does">What our code does</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -84,15 +96,9 @@
                     
     <a class="" href="../msgraph-toolkit/">Microsoft Graph Toolkit</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Retrieve SP Home Site Details using API</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#sharepoint-rest-api-to-retrieve-your-tenants-home-site-details">SharePoint Rest API to retrieve your tenant's Home Site Details</a></li>
-    
-
-    </ul>
+    <a class="" href="../get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
                 </li>
                 <li class="">
                     
@@ -164,7 +170,7 @@
         
       
     
-    <li>Retrieve SP Home Site Details using API</li>
+    <li>React Custom Hooks in SPFx</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -174,29 +180,81 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="sharepoint-rest-api-to-retrieve-your-tenants-home-site-details">SharePoint Rest API to retrieve your tenant's Home Site Details</h1>
-<p><span style="color:grey">Published on 07/01/2020</span></p>
-<p><strong>SharePoint Home Site</strong> which is a fairly new concept, is basically a landing site for your organization.</p>
-<p>There can be one Home Site per tenant, read more about SharePoint Home Sites <a href="https://www.microsoft.com/en-au/microsoft-365/blog/2019/05/21/sharepoint-home-sites-microsoft-365-innovations-intelligent-workplace/">here</a></p>
-<p>Home Site can now be set, removed or retrieved using Powershell or <a href="https://pnp.github.io/office365-cli/">Office365 CLI</a> commands.</p>
-<p>If you want to programmatically get the Url or any basic information of the Home Site in your tenant using code you can do so by making a rest call (<code>GET</code> to be specific).</p>
-<p>Here is the reference from <a href="https://s-kainet.github.io/sp-rest-explorer/#/entity/SP.SPHSite">sp-rest-explorer</a> for the API.</p>
-<p>I have a site in my tenant <code>https://yourtenant.sharepoint.com</code>, See below rest Url that should be used in your rest call to get Home site details.</p>
-<pre><code>https://yourtenant.sharepoint.com/_api/SP.SPHSite/Details
+                <h1 id="react-reusable-custom-hooks-in-spfx">React Reusable Custom Hooks in SPFx</h1>
+<p><span style="color:grey">Published on 05/03/2020</span></p>
+<p>In recent versions of SPFx, React 16.8 is supported. React hooks are used from functional component and not the standard SPFx generated class components.
+So not advising rewriting all components to have hooks, but potentially usable for any new development.</p>
+<p>I have understood these concepts from blogs by <a href="" title="https://www.vrdmn.com/2020/02/spfx-using-react-hooks-to-globally.html">Vardhaman</a> and open source projects by <a href="https://github.com/garrytrinder/spfx-servicescopes-hooks">Garry</a> so not going into details about hooks but here is a good <a href="https://reactjs.org/docs/hooks-overview.html">study material</a></p>
+<p>Here we are going to look into <strong>Custom hooks</strong> typically used for reusable stateful logic between multiple components and how to use them in an SPFx webpart.</p>
+<p>Building your own Hooks lets you extract component logic into reusable functions(they are basically functions with a fancy name used in React)</p>
+<h2 id="what-our-code-does">What our code does</h2>
+<h3 id="react-components">React components</h3>
+<p>In our example today we will look at two SPFx React webparts </p>
+<ul>
+<li>GetUsers</li>
+<li>UserCount</li>
+</ul>
+<p>These components share a logic to get users.</p>
+<p>Our goal here is to remove any logic that is duplicated (we could use a common service but remember we are learning about <code>hooks</code> here ) 
+So we create a custom hook, which retrieves user data from a sample api <code>https://jsonplaceholder.typicode.com/users</code></p>
+<p>Not only have I set the state but I have also returned the value , so now this is just like a function that I can reuse.</p>
+<h3 id="the-custom-hook">The custom hook</h3>
+<pre><code>const url='https://jsonplaceholder.typicode.com/users';
+function useGetUsers(){
+    const [data, setName] = useState({users:[]});
+    useEffect(() =&gt; {         
+       axios.get(url).then(response=&gt;{
+        setName({users: response.data});
+        });      
+
+    }, []);
+return data;    
+}
 
 </code></pre>
 
-<p>Any site in your tenant , even the tenant admin url can be used along with the rest api path  <code>/_api/SP.SPHSite/Details</code> to retrieve the home site details. </p>
-<p>The result when I have just passed the rest url on my browser.</p>
-<p><img alt="image2" src="../images/sp-home.png" /></p>
-<p>Here you can see the result when I make the call, the details retrieved are -</p>
+<p>This custom hook can now be used in GetUsers component as</p>
+<pre><code>const Getusers: React.FunctionComponent&lt;{}&gt; = () =&gt; {
+    const usrs = useGetUsers();
+    return (
+        &lt;div&gt;
+            {usrs.users.map(x =&gt;
+                &lt;div&gt;
+                    Hello  {x.name}
+                &lt;/div&gt;
+            )}
+        &lt;/div&gt;
+    );
+};
+</code></pre>
+
+<p>And the same one used in the UserCount component</p>
+<pre><code>const CountUsers: React.FunctionComponent&lt;{}&gt; = () =&gt; {
+  const usrs = useGetUsers();
+  return (
+    &lt;div&gt;
+      Number of users:  {usrs.users.length}
+    &lt;/div&gt;
+  );
+};
+</code></pre>
+
+<p>And my two webparts loaded displaying the info from the same hook.
+ <img alt="image" src="../images/hook-webpart.png" /></p>
+<h4 id="some-basic-pointers">Some basic pointers</h4>
 <ul>
-<li>SiteId (Site Guid)</li>
-<li>WebId (Web Guid)</li>
-<li>LogoUrl (If any set)</li>
-<li>Title (Title of the home site)</li>
-<li>Url (Url of the home site)</li>
+<li>
+<p>Custom hooks resue stateful logic, they do not share the state</p>
+</li>
+<li>
+<p>Each call to a Hook gets an independant state</p>
+</li>
+<li>
+<p>It is a good practice to name your hooks with a prefix - <code>use</code></p>
+</li>
 </ul>
+<p><a href="https://github.com/rabwill/reusable-hooks">Find full source here</a></p>
+<p>Hope you had some fun reading this and I really do hope you can apply this in your own projects.</p>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
@@ -216,10 +274,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../spfx-react-targetaudience/" class="btn btn-neutral float-right" title="Target Audience React Wrapper">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../library-component/" class="btn btn-neutral float-right" title="1.8.0 library component">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../msgraph-toolkit/" class="btn btn-neutral" title="Microsoft Graph Toolkit"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../teams/teams-list/" class="btn btn-neutral" title="Teams directory"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -245,10 +303,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../msgraph-toolkit/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../teams/teams-list/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../spfx-react-targetaudience/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../library-component/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
