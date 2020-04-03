@@ -181,13 +181,13 @@
                 <h1 id="propertyfieldorder-for-easy-ordering-of-quicklinks">PropertyFieldOrder for easy ordering of quicklinks</h1>
 <p><span style="color:grey">Published on 04/04/2020</span></p>
 <p>Clients love quicklinks and we already know 100 different ways to implement customized quicklinks webpart using <code>SPFx</code>.</p>
-<p>One of the most easy and configurable way to implement a super simple quicklinks webpart without having a SharePoint list as back end, if you ask me is using the PnP react control <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/controls/PropertyFieldCollectionData/">PropertyFieldCollectionData</a></p>
+<p>One of the most easy and configurable way to implement a super simple quicklinks webpart without having a SharePoint list as back end, if you ask me is using the PnP spfx property control <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/controls/PropertyFieldCollectionData/">PropertyFieldCollectionData</a></p>
 <p>Here is a quick one I created</p>
 <p><img alt="links" src="../images/quick-links.png" /></p>
-<p>Not only does this property field control gives you the ability to insert a list of data into the webpart's configuration, but it also allows us to order them.</p>
+<p>Not only does this property field control gives you the ability to insert data into the webpart's configuration, but it also allows us to order them.</p>
 <p><img alt="sort" src="../images/order-in-collection.png" /></p>
 <p>One interesting ask that came with it is to make the ordering experience simple. A simple drag and drop ordering perhaps?</p>
-<p>Say no more, PnP react controls again to the rescue. We have the <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/controls/PropertyFieldOrder/">PropertyFieldOrder</a> control will do just that. All you have to do is feed the items in the <code>PropertyFieldCollectionData</code> into this property control and now we have a much simpler ordering experience.</p>
+<p>Say no more, PnP spfx property control again to the rescue. We have the <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/controls/PropertyFieldOrder/">PropertyFieldOrder</a> control will do just that. All you have to do is feed the items in the <code>PropertyFieldCollectionData</code> into this property control and now we have a much simpler ordering experience.</p>
 <p>Below in my code you can see how I am passing the <code>this.properties.links</code> to the <code>PropertyFieldOrder</code> 's <code>items</code> property.</p>
 <pre><code>protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
@@ -225,9 +225,9 @@
 
 <p>End result of how my property pane looks</p>
 <p><img alt="order" src="../images/drag-drop.png" /></p>
-<p>I can now simply drag and drop my list around</p>
+<p>I can now simply drag and drop my links to order them.</p>
 <p>If you want to try this out here is the <a href="https://github.com/rabwill/sortable-quickLinks">source code</a></p>
-<p>Make sure you keep an eye on what's available in <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/">PnP SPFx Controls</a>.There is just too much awesomeness already built for you to make your components awesome. Sharing is caring :)</p>
+<p>Make sure you keep an eye on what's available in <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/">PnP SPFx Controls</a> at all times.There is just too much awesomeness already built for you to make your components even more awesome. Sharing is caring :)</p>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
