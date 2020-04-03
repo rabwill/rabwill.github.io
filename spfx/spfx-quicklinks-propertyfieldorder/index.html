@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Teams directory - Rabia Williams</title>
+  <title>Quick and easy sortable list - Rabia Williams</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Teams directory";
-    var mkdocs_page_input_path = "teams/teams-list.md";
+    var mkdocs_page_name = "Quick and easy sortable list";
+    var mkdocs_page_input_path = "spfx/spfx-quicklinks-propertyfieldorder.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -59,25 +59,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../o365-management-api-teams-creation/">O365 Management api</a>
+    <a class="" href="../../teams/o365-management-api-teams-creation/">O365 Management api</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Teams directory</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#teams-directory-using-spfx-ms-graph">TEAMS DIRECTORY using SPFx &amp; MS Graph</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#in-teams">In Teams</a></li>
-        
-            <li><a class="toctree-l4" href="#in-sharepoint">In SharePoint</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../teams/teams-list/">Teams directory</a>
                 </li>
     </ul>
 	    </li>
@@ -88,27 +74,33 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../spfx/reusable-custom-hooks/">React Custom Hooks in SPFx</a>
+    <a class="" href="../reusable-custom-hooks/">React Custom Hooks in SPFx</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../spfx/library-component/">1.8.0 library component</a>
+    <a class="" href="../library-component/">1.8.0 library component</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../spfx/msgraph-toolkit/">Microsoft Graph Toolkit</a>
+    <a class="" href="../msgraph-toolkit/">Microsoft Graph Toolkit</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../spfx/get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
+    <a class="" href="../get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../spfx/spfx-react-targetaudience/">Target Audience React Wrapper</a>
+    <a class="" href="../spfx-react-targetaudience/">Target Audience React Wrapper</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../spfx/spfx-quicklinks-propertyfieldorder/">Quick and easy sortable list</a>
+    <a class="current" href="./">Quick and easy sortable list</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#propertyfieldorder-for-easy-ordering-of-quicklinks">PropertyFieldOrder for easy ordering of quicklinks</a></li>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -172,11 +164,11 @@
     
       
         
-          <li>Teams &raquo;</li>
+          <li>SPFX &raquo;</li>
         
       
     
-    <li>Teams directory</li>
+    <li>Quick and easy sortable list</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -186,22 +178,56 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="teams-directory-using-spfx-ms-graph">TEAMS DIRECTORY using SPFx &amp; MS Graph</h1>
-<p>An SPFx take on a list of teams, which can be used as a Teams app.</p>
-<p><span style="color:grey">Published on 6/5/2019</span></p>
-<p>The other day I came across an interesting post on teams directory and deeplinking see original post <a href="https://www.petri.com/creating-publishing-teams-directory">here</a> and a tweet discussing different approaches for the same or similar use cases was posted- <a href="https://twitter.com/12Knocksinna/status/1123203680394727426">Tweet link</a>.</p>
-<p>I knew this was something I can do as a webpart using <code>SPFx</code> and <code>MS Graph</code> which is a completely different approach from the scripting approach in the post. They both serve the same solution to a common requirement and it was fun to have a developer's take on the requirement.</p>
-<p>I took the liberty of the long weekend here in Queensland and started off with the webpart for demonstrating the approach.</p>
-<p>The <code>SPFX webpart</code> which can also be a <code>Teams Tab</code>, will list out all the teams in a tenant.
-It will also hint the user if he is already part of the Team or not.
-If he is not a part of the Team, then he will get a link to join the team.</p>
-<h3 id="in-teams">In Teams</h3>
-<p><img alt="teams" src="../images/teams-tab.png" /></p>
-<h3 id="in-sharepoint">In SharePoint</h3>
-<p><img alt="teams" src="../images/sharepoint.png" /></p>
-<p>This webpart can be used in SharePoint sites as well as uploaded as an app in Teams via <a href="https://docs.microsoft.com/en-gb/microsoftteams/platform/concepts/apps/apps-upload">side loading</a></p>
-<p>See complete code here <a href="https://github.com/rabwill/teams-list">https://github.com/rabwill/teams-list</a></p>
-<p>Feel free to use and share it #sharingiscaring</p>
+                <h1 id="propertyfieldorder-for-easy-ordering-of-quicklinks">PropertyFieldOrder for easy ordering of quicklinks</h1>
+<p><span style="color:grey">Published on 04/04/2020</span></p>
+<p>Clients love quicklinks and we already know 100 different ways to implement customized quicklinks webpart using <code>SPFx</code>.</p>
+<p>One of the most easy and configurable way to implement a super simple quicklinks webpart without having a SharePoint list as back end, if you ask me is using the PnP react control <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/controls/PropertyFieldCollectionData/">PropertyFieldCollectionData</a></p>
+<p>Here is a quick one I created</p>
+<p><img alt="links" src="../images/quick-links.png" /></p>
+<p>Not only does this property field control gives you the ability to insert a list of data into the webpart's configuration, but it also allows us to order them.</p>
+<p><img alt="sort" src="../images/order-in-collection.png" /></p>
+<p>One interesting ask that came with it is to make the ordering experience simple. A simple drag and drop ordering perhaps?</p>
+<p>Say no more, PnP react controls again to the rescue. We have the <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/controls/PropertyFieldOrder/">PropertyFieldOrder</a> control will do just that. All you have to do is feed the items in the <code>PropertyFieldCollectionData</code> into this property control and now we have a much simpler ordering experience.</p>
+<p>Below in my code you can see how I am passing the <code>this.properties.links</code> to the <code>PropertyFieldOrder</code> 's <code>items</code> property.</p>
+<pre><code>protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
+    return {
+      pages:
+        [{header: {
+          description: &quot;Quicklinks (sortable)&quot;
+        },
+          groups:
+            [{
+              groupFields:
+                [PropertyFieldCollectionData('links', {
+                  label: &quot;&quot;,
+                  value: this.properties.links, key: &quot;123&quot;,
+                  panelHeader: &quot;&quot;, panelDescription: &quot;&quot;,
+                  manageBtnLabel: &quot;Edit links&quot;, enableSorting: true,
+                  fields: [
+                    { id: &quot;title&quot;, title: &quot;Title&quot;, type: CustomCollectionFieldType.string, required: true },
+                    { id: &quot;url&quot;, title: &quot;Url&quot;, type: CustomCollectionFieldType.url, required: false },
+                    { id: &quot;color&quot;, title: &quot;Color&quot;, type: CustomCollectionFieldType.string, required: false },
+                    { id: &quot;icon&quot;, title: &quot;Icon&quot;, type: CustomCollectionFieldType.fabricIcon, required: false },
+                  ]
+                }), PropertyFieldOrder(&quot;orderedItems&quot;, {
+                  key: &quot;orderedItems&quot;,
+                  label: &quot;Order Links&quot;,
+                  items: this.properties.links,
+                  textProperty: &quot;title&quot;,
+                  properties: this.properties,                 
+                  onPropertyChange: this.onPropertyPaneFieldChanged
+                })]
+            }]
+        }]
+    };
+  }
+</code></pre>
+
+<p>End result of how my property pane looks</p>
+<p><img alt="order" src="../images/drag-drop.png" /></p>
+<p>I can now simply drag and drop my list around</p>
+<p>If you want to try this out here is the <a href="https://github.com/rabwill/sortable-quickLinks">source code</a></p>
+<p>Make sure you keep an eye on what's available in <a href="https://sharepoint.github.io/sp-dev-fx-property-controls/">PnP SPFx Controls</a>.There is just too much awesomeness already built for you to make your components awesome. Sharing is caring :)</p>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
@@ -221,10 +247,10 @@ If he is not a part of the Team, then he will get a link to join the team.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../spfx/reusable-custom-hooks/" class="btn btn-neutral float-right" title="React Custom Hooks in SPFx">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../officecli/grant-api-permission/" class="btn btn-neutral float-right" title="Grant API permissions using Office365 CLI">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../o365-management-api-teams-creation/" class="btn btn-neutral" title="O365 Management api"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../spfx-react-targetaudience/" class="btn btn-neutral" title="Target Audience React Wrapper"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -250,10 +276,10 @@ If he is not a part of the Team, then he will get a link to join the team.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../o365-management-api-teams-creation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../spfx-react-targetaudience/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../spfx/reusable-custom-hooks/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../officecli/grant-api-permission/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
