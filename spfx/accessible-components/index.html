@@ -107,6 +107,8 @@
         
             <li><a class="toctree-l4" href="#using-aria">Using ARIA</a></li>
         
+            <li><a class="toctree-l4" href="#use-more-reactfragments-than-div">Use more React.Fragments than div</a></li>
+        
             <li><a class="toctree-l4" href="#programmatically-setting-focus">Programmatically setting focus</a></li>
         
             <li><a class="toctree-l4" href="#mouse-events">Mouse events</a></li>
@@ -234,6 +236,10 @@ As developers we often forget what <code>all</code> is.</p>
 </tr>
 </tbody>
 </table>
+<h3 id="use-more-reactfragments-than-div">Use more React.Fragments than div</h3>
+<p>The more we break away from html semantic the more we have to adjust our component to be accessible.
+e.g adding layers of div in your component can make accessibility complicated.</p>
+<p>In react use <a href="https://reactjs.org/docs/fragments.html">React.Fragments</a> instead to group logically similar element, this avoids adding nodes into the DOM unecessarily.</p>
 <h3 id="programmatically-setting-focus">Programmatically setting focus</h3>
 <p>To set focus in React, we can use Refs to DOM elements mostly because DOM elements are always manipulated in React and sometimes focus is lost.
 React provides a feature known as refs that allow for DOM access from components.
@@ -280,6 +286,10 @@ check below eg.</p>
 <p>alt="Master card logo, Amex card logo" (Righ on!)</p>
 <h3 id="my-tools">My tools</h3>
 <p>For any development to be successful you need tools to help and guide you.</p>
+<p><strong>Intellisense checks</strong>
+In my projects I used <a href="https://github.com/joaovieira/tslint-react-a11y">tslint-react-a11y</a> which was pretty straight forward to set up and configure rules.
+My tslint.json looks like this for all my basic checks.</p>
+<p><img alt="tslint image" src="../images/tslint.png" /></p>
 <p><strong>Dev tools</strong></p>
 <ul>
 <li><strong>Chrome (Audit tab)</strong> in developer tools (first step to understand the problems)</li>
