@@ -70,7 +70,7 @@
     <a class="current" href="./">Messaging extension using Microsoft Teams Toolkit</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#where-to-start-developing-your-messaging-extension-using-microsoft-teams-toolkit">Where to start developing your messaging extension using Microsoft Teams Toolkit</a></li>
+    <li class="toctree-l3"><a href="#how-to-build-apps-with-the-microsoft-teams-toolkit-and-visual-studio-code">How to build apps with the Microsoft Teams Toolkit and Visual Studio Code</a></li>
     
         <ul>
         
@@ -192,7 +192,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="where-to-start-developing-your-messaging-extension-using-microsoft-teams-toolkit">Where to start developing your messaging extension using Microsoft Teams Toolkit</h1>
+                <h1 id="how-to-build-apps-with-the-microsoft-teams-toolkit-and-visual-studio-code">How to build apps with the Microsoft Teams Toolkit and Visual Studio Code</h1>
 <p>How to get started with VS Code to create a custom Teams messaging extension.</p>
 <p><span style="color:grey">Published on 13/9/2020</span></p>
 <h2 id="what-this-blog-covers">What this blog covers</h2>
@@ -212,7 +212,7 @@ Click on Extensions icon and search for <code>Teams</code> and install it. </p>
 <p>First thing we need to do is , make sure your development environment is set to success. </p>
 <p>You have</p>
 <ul>
-<li>Installed the Microsoft Teams Toolkit in you Visual Studio Code</li>
+<li>Installed the Microsoft Teams Toolkit in your Visual Studio Code</li>
 <li><a href="https://nodejs.org/en/">Node.js</a> installed (version 6 or higher)</li>
 <li>Set up <a href="https://ngrok.com/docs">ngrok</a>, this is not familiar to you then not to worry , check next section or if you already have this set up ignore the next section.</li>
 <li><a href="https://cda.ms/1CW">M365 developer account</a></li>
@@ -253,7 +253,7 @@ We can choose <code>Messaging Extension</code> and click Next</p>
 </ul>
 <p>We are creating an action-based one here.</p>
 <p><strong>Select where your messsaging extension is hosted</strong></p>
-<p>As already mentioned before your extension should be hosted as a webservice somewhere (remember why we needed ngrok) and Teams messaging extensions take advantage of the Bot Framework's messaging schema and secure communication protocol so you have to register a bot inorder to use your webservice as a messaging extension. 
+<p>As already mentioned before, your extension should be hosted as a webservice somewhere (remember why we needed ngrok) and Teams messaging extensions take advantage of the Bot Framework's messaging schema and secure communication protocol so you have to register a bot inorder to use your webservice as a messaging extension. 
 Either click on Login button and sign in using the M365 account you are using, let the toolkit create a new Bot or head to <a href="https://portal.azure.com">Azure portal</a> to create one manually. See below how to do that.</p>
 <p>To create Bot manually</p>
 <p>1) Head to <a href="https://portal.azure.com">Azure portal</a></p>
@@ -275,7 +275,7 @@ You can see the appId in below screenshot, now to create a secret, let's click o
 </blockquote>
 <p>Come back to our wizard in VS Code</p>
 <p>Choose the second option i.e to use an existing bot and paste the appId and secret we copied earlier and hit finish.
-[tip] - Once you project is up and running, you can check this info in the .env file in the project</p>
+[tip] - Once your project is up and running, you can check this info in the .env file in the project</p>
 <p><img alt="bot-rego-bot" src="../images/bot-rego-done.png" /></p>
 <p>Success, your project is now fully scaffolded and ready to be used.</p>
 <h3 id="test-your-app-in-teams">Test your app in Teams</h3>
@@ -292,7 +292,7 @@ You can see the appId in below screenshot, now to create a secret, let's click o
 
 </code></pre>
 
-<p>You will see that you local project is now running on localhost:3978 (you can update this port in index.js file). It's still not ready to test.</p>
+<p>You will see that your local project is now running on localhost:3978 (you can update this port in index.js file). It's still not ready to test.</p>
 <p>Now in another terminal session run below tunneling command, which then gives you a https url for your local set up.</p>
 <pre><code>ngrok http -host-header=rewrite 3978
 </code></pre>
