@@ -159,12 +159,12 @@
 <p><span style="color:grey">Published on 13/9/2020</span></p>
 <h2 id="what-this-blog-covers">What this blog covers</h2>
 <ul>
-<li><a href="https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension&amp;WT.mc_id=m365-blog-rwilliams">Microsoft Teams Toolkit</a></li>
-<li>Detailed steps to <a href="https://docs.microsoft.com/microsoftteams/platform/messaging-extensions/how-to/create-messaging-extension?WT.mc_id=m365-blog-rwilliams">Create a Microsoft Teams messaging extension</a> using the toolkit</li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension&amp;WT.mc_id=m365-9118-rwilliams">Microsoft Teams Toolkit</a></li>
+<li>Detailed steps to <a href="https://docs.microsoft.com/microsoftteams/platform/messaging-extensions/how-to/create-messaging-extension?WT.mc_id=m365-9118-rwilliams">Create a Microsoft Teams messaging extension</a> using the toolkit</li>
 <li><a href="https://github.com/rabwill/teams-messaging-extension">Sample source code</a></li>
 </ul>
 <h3 id="install-microsoft-teams-toolkit">Install Microsoft Teams Toolkit</h3>
-<p>Assuming that the code editor of choice is <a href="https://code.visualstudio.com/download?WT.mc_id=m365-blog-rwilliams">Visual Studio Code</a> install the Microsoft Teams Toolkit
+<p>Assuming that the code editor of choice is <a href="https://code.visualstudio.com/download?WT.mc_id=m365-9118-rwilliams">Visual Studio Code</a> install the Microsoft Teams Toolkit
 to create, debug and deploy Teams apps directly form your editor.
 You will need Visual Studio Code v1.44 or higher and node.js 6 or higher for starting development.</p>
 <p>Check out the screen below on how to get started with it.
@@ -177,7 +177,7 @@ Click on Extensions icon and search for <code>Teams</code> and install it. </p>
 <li>Installed the Microsoft Teams Toolkit in your Visual Studio Code</li>
 <li><a href="https://nodejs.org/en/">Node.js</a> installed (version 6 or higher)</li>
 <li>Set up <a href="https://ngrok.com/docs">ngrok</a>, this is not familiar to you then not to worry , check next section or if you already have this set up ignore the next section.</li>
-<li><a href="https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-blog-rwilliams">M365 developer account</a></li>
+<li><a href="https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-9118-rwilliams">M365 developer account</a></li>
 </ul>
 <h3 id="set-up-ngrok">Set up ngrok</h3>
 <p>Why do we need this?
@@ -208,8 +208,8 @@ We can choose <code>Messaging Extension</code> and click Next</p>
 <p><strong>Type of Messaging Extension</strong></p>
 <p>There are two types of Messaging extensions</p>
 <ul>
-<li><a href="https://docs.microsoft.com/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?WT.mc_id=m365-blog-rwilliams">Action-based</a> commands allow you present your users with a modal popup (called a task module in Teams) to collect or display information, then process their interaction and send information back to Teams</li>
-<li><a href="https://docs.microsoft.com/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?WT.mc_id=m365-blog-rwilliams">Search-based</a> commands allow your users to search external systems and insert the results of that search into a message in the form of a card.</li>
+<li><a href="https://docs.microsoft.com/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?WT.mc_id=m365-9118-rwilliams">Action-based</a> commands allow you present your users with a modal popup (called a task module in Teams) to collect or display information, then process their interaction and send information back to Teams</li>
+<li><a href="https://docs.microsoft.com/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?WT.mc_id=m365-9118-rwilliams">Search-based</a> commands allow your users to search external systems and insert the results of that search into a message in the form of a card.</li>
 </ul>
 <p>We are creating an action-based one here.</p>
 <p><strong>Select where your messsaging extension is hosted</strong></p>
@@ -221,7 +221,7 @@ Either click on Login button and sign in using the M365 account you are using, l
 <p>3) Search for <code>Bot channel registration</code> and hit enter</p>
 <p><img alt="search-bot" src="../images/search-bot.png" /></p>
 <p>4) Click Create</p>
-<p>5)  Fill out the info , the messaging endpoint should look something like <code>https://myextension.azurewebsites.net/api/messages</code> where <code>https://myextension.azurewebsites.net</code> is my webservice I plan to host my app and create. More info already covered here <a href="https://docs.microsoft.com/azure/bot-service/bot-service-quickstart-registration?view=azure-bot-service-4.0&amp;WT.mc_id=m365-blog-rwilliams">Bot channels registration</a></p>
+<p>5)  Fill out the info , the messaging endpoint should look something like <code>https://myextension.azurewebsites.net/api/messages</code> where <code>https://myextension.azurewebsites.net</code> is my webservice I plan to host my app and create. More info already covered here <a href="https://docs.microsoft.com/azure/bot-service/bot-service-quickstart-registration?view=azure-bot-service-4.0&amp;WT.mc_id=m365-9118-rwilliams">Bot channels registration</a></p>
 <p><img alt="registration-bot" src="../images/registration.png" /></p>
 <p>6) Once created go to the <code>Channels</code> and configure Microsoft Teams channel (just agree on terms after reading them of course)</p>
 <p><img alt="channels-bot" src="../images/channels.png" /></p>

@@ -143,7 +143,7 @@
 <p>What makes project releases stress free?
 There is no perfect answer for this question if you have been in the IT industry for quite a long time.
 Sure you cannot make everything perfect but you can always add a little control over things, thanks to Azure DevOps!
-Today we we look into that one extra step called <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops">Deployment Gates</a> which you could configure and apply into your release pipelines to control your deployments further. </p>
+Today we we look into that one extra step called <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops/?WT.mc_id=m365-0000-rwilliams">Deployment Gates</a> which you could configure and apply into your release pipelines to control your deployments further. </p>
 <h2 id="deployment-gates">Deployment Gates</h2>
 <h3 id="so-what-are-deployment-gates">So what are deployment gates?</h3>
 <p>I am going to compare this concept with the Gates at the airport. 
@@ -154,15 +154,15 @@ You can enable these gates at the start of a stage called <em>Pre-deployment gat
 <p>There are four types of gates available at this point in which I will be demonstrating <em>Query Work items</em>
 The four types are:</p>
 <ul>
-<li>Invoke Azure function: Trigger execution of an Azure function and ensure a successful completion. For more details, see <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/azure-function?view=azure-devops">Azure function task</a>.</li>
-<li>Query Azure monitor alerts: Observe the configured Azure monitor alert rules for active alerts. For more details, see <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/azure-monitor?view=azure-devops">Azure monitor task</a>.</li>
-<li>Invoke REST API: Make a call to a REST API and continue if it returns a successful response. For more details, see <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/http-rest-api?view=azure-devops">HTTP REST API task</a>.</li>
+<li>Invoke Azure function: Trigger execution of an Azure function and ensure a successful completion. For more details, see <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/azure-function?view=azure-devops/?WT.mc_id=m365-0000-rwilliams">Azure function task</a>.</li>
+<li>Query Azure monitor alerts: Observe the configured Azure monitor alert rules for active alerts. For more details, see <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/azure-monitor?view=azure-devops/?WT.mc_id=m365-0000-rwilliams">Azure monitor task</a>.</li>
+<li>Invoke REST API: Make a call to a REST API and continue if it returns a successful response. For more details, see <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/http-rest-api?view=azure-devops/?WT.mc_id=m365-0000-rwilliams">HTTP REST API task</a>.</li>
 <li>Query Work items: Ensure the number of matching work items returned from a query is within a threshold. For more details, see <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/work-item-query?view=azure-devops">Work item query task</a>.
 Let's cut to the chase and see a step by step process of how to configure the gate and how it works!</li>
 </ul>
 <p>I am assuming that you already have a project in Azure DevOps with build and release already set up without deployment gates.
 You should have necessary permissions to make changes to release pipelines.</p>
-<p>​I have a super simple release pipeline which takes my project's SPFx web part solution package and deploys it to a SharePoint app catalogue. I do not have any approvals in place since this is purely my dev space and would recommend approvals to go hand in hand with deployment gates for actual release pipelines. Read more here on <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/approvals?view=azure-devops">approvals</a>.</p>
+<p>​I have a super simple release pipeline which takes my project's SPFx web part solution package and deploys it to a SharePoint app catalogue. I do not have any approvals in place since this is purely my dev space and would recommend approvals to go hand in hand with deployment gates for actual release pipelines. Read more here on <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/approvals?view=azure-devops/?WT.mc_id=m365-0000-rwilliams">approvals</a>.</p>
 <p>Let's get started. Below is my release pipeline.</p>
 <p><img alt="image1" src="../images/azure1.png" /></p>
 <p>I have decided to put some control into my release but at the same time I want it to be some external service that decides for me at this point if it is okay to release this new version of the app into my dev tenancy.
@@ -178,7 +178,7 @@ If you want to add a Post-deployment gate click on the user icon on the right (t
 <p>The idea is , I control my release to ensure that there are no open bugs at the time this build is released. Fair, I think .
 Now let's go back to the Release and make sure this query is configured to the gates.</p>
 <p><img alt="image5" src="../images/azure5.png" /></p>
-<p>There are some other configurations like threshold limit for the query both upper and lower, time out when gate fails , evaluation time etc which can be read in detail <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops#define-a-gate-for-a-stage">here</a>.
+<p>There are some other configurations like threshold limit for the query both upper and lower, time out when gate fails , evaluation time etc which can be read in detail <a href="https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops#define-a-gate-for-a-stage/?WT.mc_id=m365-0000-rwilliams">here</a>.
 ​Below are the setting for my demo.</p>
 <p><img alt="image6" src="../images/azure6.png" /></p>
 <p>We will see first how it works in a perfect world where my query returns no results and then see how it works when it fails.
