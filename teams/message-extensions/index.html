@@ -73,9 +73,15 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#use-toolkit-to-create-a-bot">Use Toolkit to create a bot</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#to-create-bot-manually-through-azure">To create Bot manually through Azure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#manage-bots">Manage Bots</a>
+    </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#update-the-manifest">Update the manifest</a>
+    <li class="toctree-l2"><a class="reference internal" href="#update-the-manifest-incase-of-an-incomplete-scaffolding">Update the manifest incase of an incomplete scaffolding</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#test-your-app-in-teams">Test your app in Teams</a>
     </li>
@@ -215,7 +221,20 @@ We can choose <code>Messaging Extension</code> and click Next</p>
 <p><strong>Select where your messsaging extension is hosted</strong></p>
 <p>As already mentioned before, your extension should be hosted as a webservice somewhere (remember why we needed ngrok) and Teams messaging extensions take advantage of the Bot Framework's messaging schema and secure communication protocol so you have to register a bot inorder to use your webservice as a messaging extension. 
 Either click on Login button and sign in using the M365 account you are using, let the toolkit create a new Bot or head to <a href="https://portal.azure.com">Azure portal</a> to create one manually. See below how to do that.</p>
-<p>To create Bot manually</p>
+<h3 id="use-toolkit-to-create-a-bot">Use Toolkit to create a bot</h3>
+<ul>
+<li>Login</li>
+</ul>
+<p><img alt="login" src="../images/step1.png" /></p>
+<ul>
+<li>Give a name </li>
+</ul>
+<p>Make sure you don't add space, although the placeholder suggests space, this can cause error.
+<img alt="give-name-bot" src="../images/step2.png" /></p>
+<p>Once done you will get a success message and BotId and Password (make a note of it)</p>
+<p>A sample of how that looks like once you create a bot from the Toolkit.
+<img alt="bot" src="../images/step3.png" /></p>
+<h3 id="to-create-bot-manually-through-azure">To create Bot manually through Azure</h3>
 <p>1) Head to <a href="https://portal.azure.com">Azure portal</a></p>
 <p>2)  Create a resource (from dashboard)</p>
 <p>3) Search for <code>Bot channel registration</code> and hit enter</p>
@@ -238,8 +257,24 @@ You can see the appId in below screenshot, now to create a secret, let's click o
 [tip] - Once your project is up and running, you can check this info in the .env file in the project</p>
 <p><img alt="bot-rego-bot" src="../images/bot-rego-done.png" /></p>
 <p>Success, your project is now fully scaffolded and ready to be used.</p>
-<h2 id="update-the-manifest">Update the manifest</h2>
-<p>Update the composeExtensions with below code to get you started</p>
+<h3 id="manage-bots">Manage Bots</h3>
+<p>I personally love using the bot emulator to manage the bots that I create.
+Please go to <a href="https://dev.botframework.com/bots/">https://dev.botframework.com/bots/</a> and manage your bots.
+What I noticed is that using Teams Toolkit, the Bot is created and already connected to Microsoft Teams channels.</p>
+<p><img alt="bot-emulator" src="../images/step4.png" /></p>
+<p>You can also manage bots from within the Toolkit using <a href="https://dev.teams.microsoft.com/appconfiguration.html#/bot/tool">bot management tool</a></p>
+<h2 id="update-the-manifest-incase-of-an-incomplete-scaffolding">Update the manifest incase of an incomplete scaffolding</h2>
+<p>If everything went well with the process of scaffolding the extension, you may find that the manifest file has value for composeExtension, if not the value will be empty array. In such cases add below code.</p>
+<p>Update the composeExtensions with below code to get you started with the extension, with 2 actions</p>
+<ul>
+<li>
+<p>Create card</p>
+</li>
+<li>
+<p>Share message </p>
+</li>
+</ul>
+<p>They both have events associated that will be triggered when any of the action is performed.</p>
 <pre><code> &quot;composeExtensions&quot;: [
         {
             &quot;botId&quot;: &quot;{botId0}&quot;,
@@ -337,11 +372,11 @@ You can see the appId in below screenshot, now to create a secret, let's click o
 <ul>
 <li>This is a form sample (action-based) so fill out the form and submit.</li>
 </ul>
-<p><img alt="form" src="../images/form.png" /></p>
+<p><img alt="form" src="../images/popup.png" /></p>
 <ul>
 <li>and you can now see the card in the chat area, hit send and the card is sent to the recipient </li>
 </ul>
-<p><img alt="chat" src="../images/chat.png" /></p>
+<p><img alt="chat" src="../images/card.png" /></p>
 <p><strong>You have successfully created your first messing extension</strong></p>
 <p>In the next post, we can deep dive into updates to the sample and also how to packaging, deploy to the cloud. Watch this space !</p>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
