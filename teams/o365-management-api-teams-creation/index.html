@@ -7,25 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>O365 Management api - Rabia Williams</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="../../css/theme.css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
     var mkdocs_page_name = "O365 Management api";
-    var mkdocs_page_input_path = "teams\\o365-management-api-teams-creation.md";
+    var mkdocs_page_input_path = "teams/o365-management-api-teams-creation.md";
     var mkdocs_page_url = null;
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -36,7 +35,6 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Rabia Williams</a>
         <div role="search">
@@ -47,73 +45,126 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Teams</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">O365 Management api</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#steps-to-use-the-api">Steps to use the api</a>
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Teams</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">O365 Management api</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#using-o365-management-activity-api-to-track-microsoft-teams-creation">Using O365 management activity API to track Microsoft Teams creation</a></li>
+    
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#first-start-a-subscription">First start a subscription</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#list-available-contents-to-get-content-urls-and-read-the-contents">List available contents to get content URLs and read the contents</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#azure-queue-as-storage">Azure queue as storage</a>
-    </li>
+        
+            <li><a class="toctree-l4" href="#steps-to-use-the-api">Steps to use the api</a></li>
+        
+            <li><a class="toctree-l4" href="#kudos">Kudos</a></li>
+        
         </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#kudos">Kudos</a>
-    </li>
+    
+
     </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../teams-list/">Teams directory</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../message-extensions/">Messaging extension using Microsoft Teams Toolkit</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../search-msgext-giphy/">DIY GIPHY app for Teams</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../me-experience/">Me experience</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">SPFX</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/reusable-custom-hooks/">React Custom Hooks in SPFx</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/library-component/">1.8.0 library component</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/msgraph-toolkit/">Microsoft Graph Toolkit</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/spfx-react-targetaudience/">Target Audience React Wrapper</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/spfx-quicklinks-propertyfieldorder/">Quick and easy sortable list</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/accessible-components/">Web accessibility in React components</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">OfficeCLI</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Azure</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../azure/azure-key-vault-node/">Azure Key Vault NodeJs</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../../azure/deployment-gates/">Deployment gates</a>
-                    </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Developer</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../../developer/developer-life-made-easy/">Developer life made easy</a>
-                    </li>
-                </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../teams-list/">Teams directory</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../message-extensions/">Messaging extension using Microsoft Teams Toolkit</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../spfx-teams-incoming-webhooks/">Teams Incoming Webhooks with SPFx</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">SPFX</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../spfx/reusable-custom-hooks/">React Custom Hooks in SPFx</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spfx/library-component/">1.8.0 library component</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spfx/msgraph-toolkit/">Microsoft Graph Toolkit</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spfx/get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spfx/spfx-react-targetaudience/">Target Audience React Wrapper</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spfx/spfx-quicklinks-propertyfieldorder/">Quick and easy sortable list</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../spfx/accessible-components/">Web accessibility in React components</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">OfficeCLI</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Azure</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../azure/azure-key-vault-node/">Azure Key Vault NodeJs</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../azure/deployment-gates/">Deployment gates</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Developer</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../developer/developer-life-made-easy/">Developer life made easy</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
       </div>
-    </div>
+      &nbsp;
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -142,7 +193,6 @@
       
     </li>
   </ul>
-  
   <hr/>
 </div>
           <div role="main">
@@ -159,15 +209,14 @@ I was looking into ways we can transfer this data automatically to some place el
 <p>I was at the Power Platform Summit in Melbourne this year and was inspired by the presentation from Microsoft MVP <a href="https://twitter.com/paulculmsee?lang=en">Paul Culmsee</a> on audit logs and it's API. 
 With solutions using these apis, companies will able to create solutions to have greater visibilty and control over the activities of their contents.</p>
 <p>My solution is a timer based C# application , You can choose it to be a a timer based Azure function , console app running in Azure Function to run exe or a webjob. The idea is for this app to run daily to pull data using O365 management api.</p>
-<p>My solution tracks Teams activities (Teams Creation) into a storage which can then become a log 'forever', since,</p>
+<p>My solution tracks Teams activities (Teams Creation) into a storage which can then become a log 'forever', since,
 <div style="background:#E0F2FF;border:1px solid #E0F2FF; border-radius:6px; padding:1rem;" >
-- Audit records are retained only for 90 days for **Office365 E3** <br/>
-- Audit records are retained only for 90 days for **Office365 E5** however it can eventually be available for a year for E5 users and users with E3 and an Office 365 Advanced Compliance add-on license.
-</div>
-
+- Audit records are retained only for 90 days for <strong>Office365 E3</strong> <br/>
+- Audit records are retained only for 90 days for <strong>Office365 E5</strong> however it can eventually be available for a year for E5 users and users with E3 and an Office 365 Advanced Compliance add-on license.
+</div></p>
 <h2 id="steps-to-use-the-api">Steps to use the api</h2>
 <ul>
-<li>Enable unified audit logging for your O365 organization, see instructions on <a href="https://docs.microsoft.com/en-us/office365/securitycompliance/turn-audit-log-search-on-or-off/?WT.mc_id=m365-0000-rwilliams">how to turn O365 audit log on/off</a></li>
+<li>Enable unified audit logging for your O365 organization, see instructions on <a href="https://docs.microsoft.com/en-us/office365/securitycompliance/turn-audit-log-search-on-or-off">how to turn O365 audit log on/off</a></li>
 <li>Register your application in Azure AD </li>
 <li>Add <strong>Office 365 Management API</strong> permissions Admin consent for the tenant,
    I have added (ActivityFeed.Read)</li>
@@ -211,6 +260,7 @@ With solutions using these apis, companies will able to create solutions to have
             string responseFromServer = reader.ReadToEnd();
         }
 </code></pre>
+
 <blockquote>
 <p>Once subscribed, wait upto 12 hours for it to come into effect for me it did not take 12 hours but I guess it depends.</p>
 </blockquote>
@@ -299,6 +349,7 @@ Default is last 24 hours.</p>
             }
         }
 </code></pre>
+
 <h3 id="azure-queue-as-storage">Azure queue as storage</h3>
 <p>At the moment I have chosen <code>Azure Queue</code> as my storage option, since it is easy to set up and I can trigger events from it (future blog?)</p>
 <p>Here is my queue after I run the application.</p>
@@ -312,12 +363,14 @@ A pull is always a better and consistent approach to go than a push especially f
 <h2 id="kudos">Kudos</h2>
 <p>My research would not have been complete without these awesome references</p>
 <ul>
-<li><a href="https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-reference/?WT.mc_id=m365-0000-rwilliams">Office 365 Management Activity API </a></li>
+<li><a href="https://docs.microsoft.com/en-us/office/office-365-management-api/office-365-management-activity-api-reference">Office 365 Management Activity API </a></li>
 <li><a href="https://asishpadhy.com/2019/01/16/retrieve-office-365-audit-logs-programmatically-using-office-management-api-and-azure-functions/">Retrieve audit logs programmatically by Ashish Padhy</a></li>
 </ul>
 <!-- Global site tag (gtag.js) - Google Analytics -->
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
 </script>
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -347,7 +400,7 @@ A pull is always a better and consistent approach to go than a push especially f
     
   </div>
 
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -357,7 +410,7 @@ A pull is always a better and consistent approach to go than a push especially f
 
   </div>
 
-  <div class="rst-versions" role="note" aria-label="versions">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -371,11 +424,6 @@ A pull is always a better and consistent approach to go than a push especially f
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        };
-    </script>
 
 </body>
 </html>
