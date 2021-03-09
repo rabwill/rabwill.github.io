@@ -7,24 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Azure Key Vault NodeJs - Rabia Williams</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Azure Key Vault NodeJs";
-    var mkdocs_page_input_path = "azure/azure-key-vault-node.md";
+    var mkdocs_page_input_path = "azure\\azure-key-vault-node.md";
     var mkdocs_page_url = null;
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Rabia Williams</a>
         <div role="search">
@@ -45,140 +47,73 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Teams</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../teams/o365-management-api-teams-creation/">O365 Management api</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/teams-list/">Teams directory</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/message-extensions/">Messaging extension using Microsoft Teams Toolkit</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/spfx-teams-incoming-webhooks/">Teams Incoming Webhooks with SPFx</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/search-msgext-giphy/">DIY GIPHY app for Teams</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/me-experience/">Me experience sample</a>
-                </li>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Teams</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/o365-management-api-teams-creation/">O365 Management api</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/teams-list/">Teams directory</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/message-extensions/">Messaging extension using Microsoft Teams Toolkit</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/spfx-teams-incoming-webhooks/">Teams Incoming Webhooks with SPFx</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/search-msgext-giphy/">DIY GIPHY app for Teams</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/me-experience/">Me experience sample</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">SPFX</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/reusable-custom-hooks/">React Custom Hooks in SPFx</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/library-component/">1.8.0 library component</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/msgraph-toolkit/">Microsoft Graph Toolkit</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/spfx-react-targetaudience/">Target Audience React Wrapper</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/spfx-quicklinks-propertyfieldorder/">Quick and easy sortable list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/accessible-components/">Web accessibility in React components</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">OfficeCLI</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Azure</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Azure Key Vault NodeJs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#create-azure-key-vault-secret">Create Azure Key Vault &amp; Secret</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-an-azure-function">Create an Azure Function</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#set-up-service-principal-in-aad">Set up Service Principal in AAD</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#access-policy-in-key-vault">Access policy in Key Vault</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#update-the-azure-function-with-code-to-get-secret-from-key-vault">Update the Azure function with code to get Secret from Key Vault</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">SPFX</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../spfx/reusable-custom-hooks/">React Custom Hooks in SPFx</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spfx/library-component/">1.8.0 library component</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spfx/msgraph-toolkit/">Microsoft Graph Toolkit</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spfx/get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spfx/spfx-react-targetaudience/">Target Audience React Wrapper</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spfx/spfx-quicklinks-propertyfieldorder/">Quick and easy sortable list</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../spfx/accessible-components/">Web accessibility in React components</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">OfficeCLI</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Azure</span>
-    <ul class="subnav">
-                <li class=" current">
-                    
-    <a class="current" href="./">Azure Key Vault NodeJs</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#azure-function-to-retrieve-a-secret-from-azure-key-vault-using-nodejs">Azure Function to retrieve a secret from Azure Key Vault using nodejs</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#create-azure-key-vault-secret">Create Azure Key Vault &amp; Secret</a></li>
-        
-            <li><a class="toctree-l4" href="#create-an-azure-function">Create an Azure Function</a></li>
-        
-            <li><a class="toctree-l4" href="#set-up-service-principal-in-aad">Set up Service Principal in AAD</a></li>
-        
-            <li><a class="toctree-l4" href="#access-policy-in-key-vault">Access policy in Key Vault</a></li>
-        
-            <li><a class="toctree-l4" href="#update-the-azure-function-with-code-to-get-secret-from-key-vault">Update the Azure function with code to get Secret from Key Vault</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../deployment-gates/">Deployment gates</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Developer</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../developer/developer-life-made-easy/">Developer life made easy</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../deployment-gates/">Deployment gates</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../developer/developer-life-made-easy/">Developer life made easy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -207,6 +142,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -294,7 +230,6 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
 export default httpTrigger;
 </code></pre>
-
 <p>Secret Version can be found where you have created the secret.
 <img alt="version" src="../images/version.png" /></p>
 <p>Now after deploying the updated code, let's access our Azure function from a browser, get the function URL from the portal and append <code>&amp;secretname=&lt;insertyoursecretname&gt;</code> into the url</p>
@@ -302,10 +237,8 @@ export default httpTrigger;
 <p><img alt="runfunction.png" src="../images/runfunction.png" /></p>
 <p>Happy azuring your way to safety and security :) #shareingiscaring</p>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
 </script>
-
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -335,7 +268,7 @@ export default httpTrigger;
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -345,7 +278,7 @@ export default httpTrigger;
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -359,6 +292,11 @@ export default httpTrigger;
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

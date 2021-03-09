@@ -7,24 +7,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
+  
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>1.8.0 library component - Rabia Williams</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "1.8.0 library component";
-    var mkdocs_page_input_path = "spfx/library-component.md";
+    var mkdocs_page_input_path = "spfx\\library-component.md";
     var mkdocs_page_url = null;
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js" defer></script>
   <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
@@ -35,6 +36,7 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Rabia Williams</a>
         <div role="search">
@@ -45,136 +47,77 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Teams</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../teams/o365-management-api-teams-creation/">O365 Management api</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/teams-list/">Teams directory</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/message-extensions/">Messaging extension using Microsoft Teams Toolkit</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/spfx-teams-incoming-webhooks/">Teams Incoming Webhooks with SPFx</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/search-msgext-giphy/">DIY GIPHY app for Teams</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../teams/me-experience/">Me experience sample</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">SPFX</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../reusable-custom-hooks/">React Custom Hooks in SPFx</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">1.8.0 library component</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#step-by-step-create-spfx-library-component">Step by Step: Create SPFx library component</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Teams</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/o365-management-api-teams-creation/">O365 Management api</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/teams-list/">Teams directory</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/message-extensions/">Messaging extension using Microsoft Teams Toolkit</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/spfx-teams-incoming-webhooks/">Teams Incoming Webhooks with SPFx</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/search-msgext-giphy/">DIY GIPHY app for Teams</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../teams/me-experience/">Me experience sample</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">SPFX</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../reusable-custom-hooks/">React Custom Hooks in SPFx</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">1.8.0 library component</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#my-library-circle-lib">My Library - Circle-Lib</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#my-webpart-circle">My Webpart - circle</a>
         <ul>
-        
-            <li><a class="toctree-l4" href="#my-library-circle-lib">My Library - Circle-Lib</a></li>
-        
-            <li><a class="toctree-l4" href="#my-webpart-circle">My Webpart - circle</a></li>
-        
-            <li><a class="toctree-l4" href="#how-to-deploy-and-use-the-library-in-your-spo-tenant">How to deploy and use the library in your SPO tenant?</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#now-how-would-you-link-the-library-you-created-to-this-webpart">Now how would you link the library you created to this webpart?????</a>
+    </li>
         </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../msgraph-toolkit/">Microsoft Graph Toolkit</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../spfx-react-targetaudience/">Target Audience React Wrapper</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../spfx-quicklinks-propertyfieldorder/">Quick and easy sortable list</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../accessible-components/">Web accessibility in React components</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">OfficeCLI</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Azure</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../azure/azure-key-vault-node/">Azure Key Vault NodeJs</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../azure/deployment-gates/">Deployment gates</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Developer</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../developer/developer-life-made-easy/">Developer life made easy</a>
-                </li>
-    </ul>
-	    </li>
-          
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-to-deploy-and-use-the-library-in-your-spo-tenant">How to deploy and use the library in your SPO tenant?</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#references">References</a>
+    </li>
         </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../msgraph-toolkit/">Microsoft Graph Toolkit</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../spfx-react-targetaudience/">Target Audience React Wrapper</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../spfx-quicklinks-propertyfieldorder/">Quick and easy sortable list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../accessible-components/">Web accessibility in React components</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">OfficeCLI</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Azure</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../azure/azure-key-vault-node/">Azure Key Vault NodeJs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../azure/deployment-gates/">Deployment gates</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../developer/developer-life-made-easy/">Developer life made easy</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -203,6 +146,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -222,12 +166,10 @@ Without much intro let's get into creating one, shall we?</p>
 <p>First step is scaffolding the library component, just like you would create a Webpart or Extension; we can now create Libraries, but by using an extra argument in the yo command called <strong>--plusbeta</strong></p>
 <pre><code>​ yo @microsoft/sharepoint --plusbeta
 </code></pre>
-
 <p>Assuming that you already have the sharepoint generator installed before running above command.
 If you don't not to worry,  use below command before you use the yo command </p>
 <pre><code>npm install @microsoft/generator-sharepoint
 </code></pre>
-
 <p><img alt="image1" src="../images/lib1.png" /></p>
 <p>Now let's start scaffolding , solution name and other input is given and then choose Library ​option for component type (wohoo!)</p>
 <p><img alt="image2" src="../images/lib2.png" /></p>
@@ -248,7 +190,6 @@ I am assuming this to be a little repeated step so would link steps to create a 
 <p>You just have to use below command from your webpart root folder and then use the dependencies and references as you would treat an npm package.</p>
 <pre><code>npm link circle-lib
 </code></pre>
-
 <p>circle-lib is the name of my library in package.json file</p>
 <p><img alt="image6" src="../images/lib6.png" /></p>
 <p>So I am now in my webpart folder and will run the link command</p>
@@ -264,7 +205,6 @@ I am assuming this to be a little repeated step so would link steps to create a 
 <pre><code>gulp bundle --ship
 gulp package-solution --ship
 </code></pre>
-
 <p>Note that the solution should be deployed globally in the tenant and there are some considerations
 - You can only host one library component version at the time in a tenant
 - It is not supported to have other component types included in a solution which contains library component
@@ -306,7 +246,7 @@ I would now package my webpart and deploy it as well into the app catalogue.</p>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -316,7 +256,7 @@ I would now package my webpart and deploy it as well into the app catalogue.</p>
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -330,6 +270,11 @@ I would now package my webpart and deploy it as well into the app catalogue.</p>
     <script>var base_url = '../..';</script>
     <script src="../../js/theme.js" defer></script>
       <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>
