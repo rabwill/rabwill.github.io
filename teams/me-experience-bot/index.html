@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Me experience BOT - Rabia Williams</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Me experience BOT";
+    var mkdocs_page_input_path = "teams\\me-experience-bot.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Rabia Williams</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Teams</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../o365-management-api-teams-creation/">O365 Management api</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../teams-list/">Teams directory</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../message-extensions/">Messaging extension using Microsoft Teams Toolkit</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../spfx-teams-incoming-webhooks/">Teams Incoming Webhooks with SPFx</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../search-msgext-giphy/">DIY GIPHY app for Teams</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../me-experience/">Me experience sample</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Me experience BOT</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#tools-needed">Tools needed</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#azure-side-of-things">Azure Side of things 🌩</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#luis-side-of-things">Luis side of things ⁉</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#graph-connection-side-of-things">Graph connection side of things</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#source-code-side-of-things">Source code side of things</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#testing-with-bot-emulator">Testing with Bot emulator</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#testing-me-bot-in-microsoft-teams">Testing ME bot in Microsoft Teams</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#how-did-the-magic-work">How did the magic work?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conclusion">Conclusion</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">SPFX</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/reusable-custom-hooks/">React Custom Hooks in SPFx</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/library-component/">1.8.0 library component</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/msgraph-toolkit/">Microsoft Graph Toolkit</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/spfx-react-targetaudience/">Target Audience React Wrapper</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/spfx-quicklinks-propertyfieldorder/">Quick and easy sortable list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/accessible-components/">Web accessibility in React components</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">OfficeCLI</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Azure</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../azure/azure-key-vault-node/">Azure Key Vault NodeJs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../azure/deployment-gates/">Deployment gates</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../developer/developer-life-made-easy/">Developer life made easy</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Rabia Williams</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Teams &raquo;</li>
+        
+      
+    
+    <li>Me experience BOT</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="me-experience-as-a-bot-in-microsoft-teams-using-bot-composer">Me Experience as a bot in Microsoft Teams using Bot Composer</h1>
+<p><span style="color:grey">Published on  14/03/2021</span></p>
+<p>If you have been following my blogs, you know that I have created an <a href="https://rabiawilliams.com/teams/me-experience/">SPFx webpart</a> which was used as a Personal app in Microsoft Teams,  which gives you the <a href="https://docs.microsoft.com/en-us/sharepoint/dev/spfx/build-for-teams-me-experience/?WT.mc_id=m365-20710-rwilliams">Me Experience</a> as explained in the blog by <a href="https://twitter.com/waldekm">Waldek Mastykarz</a>.</p>
+<p>For a long time I have been thinking of giving you a bot that does something similar. While it is still a work in progress, I thought I would share with you the basics on how to get started with bots in Microsoft Teams using bot composer to build a ME bot. This time again, we are going to connect to <code>Microsoft Graph</code> to get data about the user. </p>
+<p>This bot currently will get upcoming meetings of the logged in user.</p>
+<p>Last week, I spent some time with my colleagues (<a href="https://twitter.com/Bob1German">Bob German</a> and <a href="https://twitter.com/waldekm">Waldek Mastykarz</a>) for a hack week in my team. And we built a personal assistant bot which we will soon be sharing with you! But first thing first, let's build a basic bot that connects to <code>Microsoft Graph</code> which will get you next meetings listed out for you, from your calendar.</p>
+<h2 id="tools-needed">Tools needed</h2>
+<p>There are some tools you need in your dev environment to get started 🛠.</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/composer/install-composer?WT.mc_id=m365-20710-rwilliams">Bot Composer</a></li>
+<li><a href="https://github.com/Microsoft/BotFramework-Emulator#readme">Bot Emulator</a></li>
+<li><a href="https://azure.microsoft.com/en-au/free/?WT.mc_id=m365-20710-rwilliams">Azure Subscription</a> (for Bot Services, and LUIS)</li>
+<li>Set up <a href="https://ngrok.com/docs">ngrok</a></li>
+</ul>
+<h2 id="azure-side-of-things">Azure Side of things 🌩</h2>
+<p>If you are familiar with <a href="https://docs.microsoft.com/azure/bot-service/bot-service-quickstart-registration?view=azure-bot-service-4.0&amp;WT.mc_id=m365-20710-rwilliams">Bot channels registration</a> then you can skip to next section or stay with me here otherwise.</p>
+<ul>
+<li>In Azure portal <a href="htts://portal.azure.com">htts://portal.azure.com</a>, Search for <strong>Bot Services</strong>.</li>
+<li>
+<p>Create new <strong>Bot Channel Registration</strong> from the choices.</p>
+<p><img alt="bot channel registration" src="../images/01-bot-channel-search.png" /></p>
+</li>
+<li>
+<p>Fill in the bot details, make sure you have an active subscription. The messaging end point is what you will be tunneling the local project using ngrok. Add <code>/api/messages</code> to the ngrok url.</p>
+<p><img alt="bot-fill-in" src="../images/02-fill-bot-rego.png" /></p>
+</li>
+<li>
+<p>Once created, on the left nav, choose channels and add a featured channel for <code>Microsoft Teams</code></p>
+<p><img alt="configure-teams" src="../images/03-configure-teams.png" /></p>
+</li>
+<li>
+<p>Further along, you will be asked to agree to <strong>Terms of Service</strong>, Agree and proceed.</p>
+</li>
+<li>
+<p>In the left nav, select <strong>Configure</strong> and you will see the below window, here you will <strong>manage</strong> the appId and secret that you will use in your bot.</p>
+<p><img alt="04-configure-app-bot" src="../images/04-configure-app-bot.png" /></p>
+</li>
+<li>
+<p>When you click on the <strong>Manage</strong> link shown above, you will be taken to the app that was registered as part of the <code>Bot channel registration</code>. Copy the appID, Application(client)ID which is in the <strong>Overview</strong> page as shown in the below screen. Also copy the Directory(tenant)ID. Make sure here you also create a secret for this app. Copy it somewhere to use later.</p>
+<p><img alt="05-configure-appid" src="../images/05-configure-appid.png" /></p>
+<p><img alt="08-secret" src="../images/08-secret.png" /></p>
+</li>
+<li>
+<p>In the app registration's overview page click on the <strong>Add a Redirect URI</strong> link to set the redirect URI. </p>
+</li>
+<li>
+<p>Add a <strong>Web</strong> platform, by clicking on the <strong>Add a platform</strong> link and choosing <strong>Web</strong> among the platforms as shown below.
+    <img alt="06-configure-platform" src="../images/06-configure-platform.png" /></p>
+</li>
+<li>
+<p>The redirect URL will be <code>https://token.botframework.com/.auth/web/redirect</code>. Make sure you enable Implicit grand and hybrid flow by checking both <strong>Access tokens</strong> and <strong>ID tokens</strong>.</p>
+<p><img alt="07-configure-web" src="../images/07-configure-web.png" /></p>
+</li>
+</ul>
+<p>I know this was a lot, but we are almost there 😀</p>
+<h2 id="luis-side-of-things">Luis side of things ⁉</h2>
+<p>You will need to set up a new app in LUIS and use it's info in the Bot Composer as we are using LUIS to interpret the intent of the bot. For e.g when you ask your bot a question it is a trigger phrase and this is then interpreted using LUIS to give back results.</p>
+<ul>
+<li>Go to LUIS <a href="https://www.luis.ai/">https://www.luis.ai/</a> </li>
+<li>
+<p>Make sure you have set up the authoring resource with your Azure subscription.</p>
+<p><img alt="09-authoring-luis" src="../images/09-authoring-luis.png" /></p>
+</li>
+<li>
+<p>Create a new app under the this authoring resource</p>
+<p><img alt="10-create-app" src="../images/10-create-app.png" /></p>
+</li>
+<li>
+<p>Copy the LUIS region and LUIS authoring key as below, you will need it later for Bot Composer settings.</p>
+<p><img alt="11-LUIS-settings" src="../images/11-LUIS-settings.png" /></p>
+</li>
+</ul>
+<p>Seems like that was easy 👍</p>
+<h2 id="graph-connection-side-of-things">Graph connection side of things</h2>
+<p>Your bot needs to talk to Graph. In our SPFx webpart we had it easy with Microsoft Graph Toolkit component. Here, we have to set things up.</p>
+<ul>
+<li>
+<p>Go to the configuration page of the Bot Channel Registration, and select the Add OAuth Connection Settings button.</p>
+<p><img alt="12-configure-oauth" src="../images/12-configure-oauth.png" /></p>
+</li>
+<li>
+<p>Fill out the connection settings as shown below, you will use the appId, secret and the tenantId you copied from the app registration you did earlier to fill this connection settings.</p>
+<p><img alt="13-graph-connection" src="../images/13-graph-connection.png" /></p>
+</li>
+</ul>
+<p>For now, our ME bot only reads user's calendar so under scope we can mention <code>Calendars.Read</code>, we can adjust the scope as we extend the bot to do more.
+You can have all scopes in one connection (separated by space), or multiple connection with unique scopes incase you want to do dynamic consent.</p>
+<h2 id="source-code-side-of-things">Source code side of things</h2>
+<ul>
+<li>Go to my source code <a href="https://github.com/rabwill/bot-me-experience">https://github.com/rabwill/bot-me-experience</a> and clone the project.</li>
+<li>Open this project's root folder <code>bot-me-experience</code> in Bot Composer (You will see an <strong>Open</strong> button on top)</li>
+<li>Go to the settings of the Bot Composer.</li>
+<li>Fill in the appId, secret, LUIS authoring key and LUIS region as shown below. You had previously copied these.
+    <img alt="14-bot-composer-settings" src="../images/14-bot-composer-settings.png" /></li>
+</ul>
+<h2 id="testing-with-bot-emulator">Testing with Bot emulator</h2>
+<ul>
+<li>The bot is configured to be tested locally.</li>
+<li>
+<p>Start the bot</p>
+<p><img alt="15-start-bot" src="../images/15-start-bot.png" /></p>
+</li>
+<li>
+<p>Choose <strong>Test in emulator</strong> as shown below. Allow access if you get a security alert.</p>
+<p><img alt="16-allow" src="../images/16-allow.png" /></p>
+</li>
+<li>
+<p>Type <code>My next meetings</code> in the chat in the emulator and hit send.</p>
+<p><img alt="17-typed" src="../images/17-typed.png" /></p>
+</li>
+<li>
+<p>You will get the the <strong>Login</strong> button to give permission for the app to read your calendar.</p>
+</li>
+<li>Select login, and complete the sign in process.</li>
+<li>
+<p>Once done you will see the meetings shown to you (make sure you have up coming meetings to test this) </p>
+<p><img alt="18-meetings-shown" src="../images/18-meetings-shown.png" /></p>
+</li>
+</ul>
+<p>Your ME bot is working and it's magic. 😀🎉 Not a single line of code so far.</p>
+<h2 id="testing-me-bot-in-microsoft-teams">Testing ME bot in Microsoft Teams</h2>
+<p>Now the final part of our exercise is to get this up and running in Microsoft Teams.</p>
+<ul>
+<li>
+<p>Go to Microsoft Team's app studio and create a new app.</p>
+<p><img alt="19-app-studio" src="../images/19-app-studio.png" /></p>
+</li>
+<li>
+<p>Fill out the App details (name of the app etc..)</p>
+</li>
+<li>
+<p>Under <strong>Capabilities</strong>,  select <strong>Bot</strong>, select <strong>Set up</strong>.</p>
+<p><img alt="20-bot-setup" src="../images/20-bot-setup.png" /></p>
+</li>
+<li>
+<p>Select <strong>Existing bot</strong> and paste the appId used before here, and select scope <strong>Personal</strong>.</p>
+<p><img alt="21-existing-bot" src="../images/21-existing-bot.png" /></p>
+</li>
+<li>
+<p>Under <strong>Finish</strong>, select <strong>Domains and permissions</strong>, add <code>token.botframework.com</code> under valid domains.</p>
+<p><img alt="22-valid-domains" src="../images/22-valid-domains.png" /></p>
+</li>
+</ul>
+<p>You have successfully created a Teams application for the ME bot 🐱‍👤. Let's test it.</p>
+<ul>
+<li>Make sure you have started the bot in the Bot Composer.</li>
+<li>Tunnel the localhost which you probably noticed is in port 3980. Use below script to ngrok.</li>
+</ul>
+<pre><code>ngrok http 3980 
+</code></pre>
+<p>If you are using a purchased subdomain then use below script</p>
+<pre><code>ngrok http 3980 -subdomain &lt;subdomain-name-here&gt;
+</code></pre>
+<p>I have used a subdomain called <code>cda</code>.
+If you don't have a subdomain, the url  may look something like <code>https://bb48526b33ca.ngrok.io</code></p>
+<ul>
+<li>
+<p>Make sure you copy the ngrok url and update it in the Bot channel registration page in Azure Portal.</p>
+<p><img alt="23-ngrok" src="../images/23-ngrok.png" /></p>
+</li>
+<li>
+<p>Go to the app studio and under <strong>Finish</strong>, select <strong>Test and distribute</strong>.</p>
+</li>
+<li>Install the app and you will be taken to a chat with the bot.</li>
+<li>The chat experience will be similar to what you experienced in Bot Emulator.</li>
+<li>
+<p>Here is how it will look.</p>
+<p><img alt="24-me-bot-final" src="../images/24-me-bot-final.png" /></p>
+</li>
+</ul>
+<h2 id="how-did-the-magic-work">How did the magic work?</h2>
+<p>Open the project in the Bot Composer and go to the trigger <code>MyMeetings</code>.
+Triggers fire when a particular trigger phrase matches the intent, here intent is <code>MyMeetings</code>.
+When the user sent a message <code>My next meetings</code> in the chat, and the trigger gets fired. </p>
+<p><img alt="29-triggers" src="../images/29-triggers.png" /></p>
+<p>Each trigger has a dialog as shown below, this is where all the logic reside- the authentication using the OAuth connection we set up before, the graph API calls and responses from ME bot.
+They are all built in actions, just like <code>Power Automate</code>.
+We have used adaptive cards to send the bot response with the meeting information.</p>
+<p><img alt="25-process" src="../images/25-process.png" /></p>
+<p>The adaptive card used to display the meetings,  is in the <code>Bot response</code> of the Bot Composer.
+<img alt="26-bot-response" src="../images/26-bot-response.png" /></p>
+<p>The <code>show code</code> feature is quite useful when you want to see the code behind it and make changes to the adaptive card.
+<img alt="27-show-code" src="../images/27-show-code.png" /></p>
+<p>Here you will see a function <code>MeetingAdaptiveCard</code> which takes parameter response coming from Graph API call, and generate the Adaptive card with the response data.
+<img alt="28-code-ac" src="../images/28-code-ac.png" /></p>
+<p>It is a bit tedious to write adaptive cards in an editor like this, hopefully it will get better and we will be able to see previews. </p>
+<h2 id="conclusion">Conclusion</h2>
+<p>There is still a lot to improve in the Bot Composer but I can see a lot of potential in this tool. Many bot applications with simple and straight forward workflows can be easily built using this low code tool.</p>
+<p>I hope I have at least put some curiosity in building bots in Microsoft Teams using the Bot Composer. 
+There is so much more I'd like to cover, but let's stop for now. Building a bot within few hours is powerful. We can do so much more and not a single line of code was written by the developer. Watch this space to learn more about bots and Bot Composers. I will also add new capabilities to ME bot, so watch this space!</p>
+<p>Till then take care 😊</p>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-146817327-1');
+</script>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../spfx/reusable-custom-hooks/" class="btn btn-neutral float-right" title="React Custom Hooks in SPFx">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../me-experience/" class="btn btn-neutral" title="Me experience sample"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../me-experience/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../spfx/reusable-custom-hooks/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
