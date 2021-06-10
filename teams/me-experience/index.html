@@ -151,7 +151,8 @@
             <div class="section">
               
                 <h1 id="me-experience-in-microsoft-teams-using-microsoft-graph-tookit-and-spfx">Me Experience in Microsoft Teams using Microsoft Graph Tookit and SPFx</h1>
-<p><span style="color:grey">Published on  09/11/2020</span></p>
+<!-- <span style="color:grey">Published on  09/11/2020</span> -->
+<p><span style="color:grey">Updated on  10/06/2021</span></p>
 <p>Create the <a href="https://docs.microsoft.com/en-us/sharepoint/dev/spfx/build-for-teams-me-experience/?WT.mc_id=m365-10690-rwilliams">Me Experience</a> as explained in the blog by <a href="https://twitter.com/waldekm">Waldek Mastykarz</a> using <a href="https://docs.microsoft.com/en-us/graph/toolkit/get-started/use-toolkit-with-react/?WT.mc_id=m365-10690-rwilliams">Microsoft Graph Tookit with React</a> and SPFx</p>
 <p>This blog is a short walkthrough of the sample created for the Me Experience with the <a href="https://docs.microsoft.com/en-us/sharepoint/dev/spfx/build-for-teams-me-experience/?WT.mc_id=m365-10690-rwilliams#combine-multiple-web-parts-in-a-single-tab-of-a-personal-teams-app">Combine multiple web parts in a single tab of a personal Teams app</a> approach</p>
 <p>The sample covers: </p>
@@ -170,12 +171,12 @@
 <li>Settings </li>
 </ul>
 <h3 id="planning">Planning</h3>
-<p>Uses Agenda, Tasks, and Get components from <a href="https://docs.microsoft.com/en-us/graph/toolkit/get-started/use-toolkit-with-react/?WT.mc_id=m365-10690-rwilliams">Microsoft Graph Tookit with React</a></p>
+<p>Uses Agenda, Tasks, and FileList components from <a href="https://docs.microsoft.com/en-us/graph/toolkit/get-started/use-toolkit-with-react/?WT.mc_id=m365-10690-rwilliams">Microsoft Graph Tookit with React</a></p>
 <blockquote>
-<p><a href="https://github.com/microsoftgraph/microsoft-graph-toolkit/issues/703">MGT-Files</a> are coming and can replace the custom File component used here in combination with Get to simplify things further. But we don't know when but fingers crossed 🤞🏽</p>
+<p><a href="https://github.com/microsoftgraph/microsoft-graph-toolkit/issues/703">MGT-Files</a> is here 🎉 so I have updated the code to use <a href="https://docs.microsoft.com/en-us/graph/toolkit/components/file-list?WT.mc_id=m365-33182-rwilliams">FileList</a></p>
 </blockquote>
 <h3 id="insights">Insights</h3>
-<p>Uses the custom component using GET Component in MGT and a custom template</p>
+<p>Uses <a href="https://docs.microsoft.com/en-us/graph/toolkit/components/file-list?WT.mc_id=m365-33182-rwilliams">FileList</a> to display the list of files.</p>
 <h3 id="settings">Settings</h3>
 <p>Personal Apps in Teams do not have configuration settings as in a regular <code>SPFx</code> webpart. And often we might want to configure few things. 
 For e.g here , the app shows me my upcoming meetings for the next 8 days, may be I want to see it for just the next 5 days then I should be able to configure this.</p></p>
