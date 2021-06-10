@@ -73,6 +73,8 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#settings">Settings</a>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#spfx-library-for-mgt">SPFx Library for MGT</a>
+    </li>
         </ul>
     </li>
     </ul>
@@ -184,6 +186,8 @@ For e.g here , the app shows me my upcoming meetings for the next 8 days, may be
 Here we have used <a href="https://docs.microsoft.com/en-us/graph/extensibility-overview/?WT.mc_id=m365-10690-rwilliams">Microsoft Graph Open Extensions</a>
 Right now it only has one setting, the number of days passed to the Agenda component to bring back events, but we will be upgrading this to more as the need arise.</p>
 <p>Find full source <a href="https://github.com/rabwill/tab-spfx-me-experience">here</a> </p>
+<h3 id="spfx-library-for-mgt">SPFx Library for MGT</h3>
+<p>Another update I have also done in this project is to use <a href="https://docs.microsoft.com/en-us/graph/toolkit/get-started/mgt-spfx?WT.mc_id=m365-33182-rwilliams">SPFx Library for mgt</a>, <code>mgt-spfx-2.2.0.sppkg</code> file in my SP app catalog and in code,  to prevent multiple components from registering their own set of MGT components on the page, which did not work on SharePoint pages previously. This is just amazing news for SP devs!</p>
 <p>The app respects themes chosen by users in <code>Teams</code>, thanks to this article by <a href="https://joaojmendes.com/2020/04/14/microsoft-graph-open-extensions/">Joao Mendez</a> a lot of work was simplified for this sample , kudos to you 👏🏽</p>
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
 </script>
