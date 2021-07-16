@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Universal actions in adaptive cards nodejs - Rabia Williams</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Universal actions in adaptive cards nodejs";
+    var mkdocs_page_input_path = "teams\\uam-bot.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Rabia Williams</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Teams</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../o365-management-api-teams-creation/">O365 Management api</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../teams-list/">Teams directory</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../message-extensions/">Messaging extension using Microsoft Teams Toolkit</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../spfx-teams-incoming-webhooks/">Teams Incoming Webhooks with SPFx</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../search-msgext-giphy/">DIY GIPHY app for Teams</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../me-experience/">Me experience sample</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../me-experience-bot/">Me experience BOT</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Universal actions in adaptive cards nodejs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#scenario">Scenario</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#user-specific-views">User Specific Views</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#up-to-date-cards">Up to date cards</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sequential-workflow-support">Sequential Workflow support</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-a-sample-bot-first">Create a sample bot first</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#prep-your-bot-for-storing-conversation-data">Prep your BOT for storing conversation data</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#what-your-bot-does-first-when-called">What your bot does first when called</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#when-your-bot-notices-your-card-has-refresh-property">When your bot notices your card has refresh property</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#clone-the-source">Clone the source</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#register-a-bot">Register a bot</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#run-project">Run project</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ngrok">Ngrok</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#microsoft-teams-application">Microsoft Teams application</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#test-the-application">Test the application</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">SPFX</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/reusable-custom-hooks/">React Custom Hooks in SPFx</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/library-component/">1.8.0 library component</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/msgraph-toolkit/">Microsoft Graph Toolkit</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/get-sp-homesite-details/">Retrieve SP Home Site Details using API</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/spfx-react-targetaudience/">Target Audience React Wrapper</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/spfx-quicklinks-propertyfieldorder/">Quick and easy sortable list</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../spfx/accessible-components/">Web accessibility in React components</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">OfficeCLI</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../officecli/grant-api-permission/">Grant API permissions using Office365 CLI</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Azure</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../azure/azure-key-vault-node/">Azure Key Vault NodeJs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../azure/deployment-gates/">Deployment gates</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Developer</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../developer/developer-life-made-easy/">Developer life made easy</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Rabia Williams</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Teams &raquo;</li>
+        
+      
+    
+    <li>Universal actions in adaptive cards nodejs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="universal-actions-for-adaptive-cards-in-a-nodejs-project">Universal Actions for Adaptive Cards in a NodeJs project</h1>
+<p><span style="color:grey">Published on 16/07/2021</span></p>
+<p>Earlier this year I had the biggest opportunity ever to speak at the <a href="https://mybuild.microsoft.com/sessions/337ee14e-a234-4c63-95dd-117dbe05d1bc?source=sessions">2021 Microsoft BUILD event</a> about Adaptive cards capabilities with the new <a href="https://aka.ms/universal-actions-model">Universal Actions</a> 😇</p>
+<p>The sample C# project you see in the BUILD event demo, developed by the engineering team @ Microsoft is yet to be published in this <a href="https://github.com/microsoft/BotBuilder-Samples">repo</a> but you can find another sample, the <a href="https://github.com/OfficeDev/Microsoft-Teams-Samples/tree/main/samples/bot-teams-catering/csharp">catering bot</a> which uses UAM.</p>
+<p>We also have an amazing community here for Microsoft 365 and you can also checkout these samples in C# by some Microsoft MVPs in our community.</p>
+<ul>
+<li>
+<p><a href="https://nanddeepnachanblogs.com/posts/2021-07-05-universal-actions-adaptive-cards-teams/">Incident Management</a> by Nanddeep Nachan</p>
+</li>
+<li>
+<p><a href="https://www.vrdmn.com/2021/07/working-with-adaptive-card-universal.html">Universal Actions</a> by Vardhaman Deshpande</p>
+</li>
+</ul>
+<p>If you are looking for a simple Nodejs sample, stay here 😉</p>
+<p><img alt="meme" src="../images/nodejsmeme.png" /></p>
+<h2 id="scenario">Scenario</h2>
+<ul>
+<li>I can use the BOT to put a question or a thought in the channel/group chat conversation.</li>
+<li>My team mates can respond to the question with a form to put free text in.</li>
+<li>I can check how many team mates responded in the same card with their responses, real time. I don't need to force any refresh.</li>
+</ul>
+<p>This scenario covers below capabilities:</p>
+<h3 id="user-specific-views">User Specific Views</h3>
+<p>Same card, in the same conversation with different views based on whether you:</p>
+<ul>
+<li>Initiated the bot with a question</li>
+<li>Responded to the question in a form</li>
+<li>Have not responded to the question</li>
+</ul>
+<p>This is what they call <code>User Specific View</code>.</p>
+<h3 id="up-to-date-cards">Up to date cards</h3>
+<p>Same card refreshed and kept up to date to show initiator no of responses and the actual responses dynamically fed into the card, in the SAME CARD in the SAME CONVERSATION!!! This uses refresh and message edits for keeping the card <code>Up to date</code></p>
+<h3 id="sequential-workflow-support">Sequential Workflow support</h3>
+<p>And all this time, every user has their own workflow to deal with no matter how many other people responded to the same card, and this is what they call <code>Sequential Workflows</code>.</p>
+<p>You can read all about these in <a href="https://aka.ms/universal-actions-model">https://aka.ms/universal-actions-model</a></p>
+<p>So here are the steps I did to get from A to B.</p>
+<h2 id="create-a-sample-bot-first">Create a sample bot first</h2>
+<p>To demonstrate the capabilities I decided to build a bot for Microsoft Teams. Now to start off with a bot I first thought of using the official Visual Studio Code extension - <a href="https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension&amp;WT.mc_id=m365-35338-rwilliams">Teams Toolkit</a> or the <a href="https://github.com/pnp/generator-teams">Yeoman generator</a> for Teams developed by the community.</p>
+<p>As I was fiddling with them I noticed that the default project scaffolded out, had a lot going on which is great for a seasoned developer but not so much for a newbie. I checked with my colleague and good friend <a href="https://twitter.com/Bob1German">Bob German</a> around options since he is also my Bot guru and have regularly checked my progress and even reviewed this project, he suggested <a href="https://www.npmjs.com/package/generator-botbuilder">generator-botbuilder</a> which is a Yeoman generator for Bot Framework v4.
+It was perfect for me, I chose a simple Echo Bot template and scaffolded out the project. </p>
+<p>I updated the bot packages to latest bot-builder version which has the universal actions capabilities, I also added adaptive card templating package to my project additionally.</p>
+<h2 id="prep-your-bot-for-storing-conversation-data">Prep your BOT for storing conversation data</h2>
+<p>In the project there is the <code>index.ts</code> file where I will add code for creating objects of conversation data storage. I need this to save data like, who initiated, who responded, the response texts etc.</p>
+<blockquote>
+<p>I am going to use  the state and storage features of the Bot Framework SDK, as this is a sample dem. You may use any storage of your choice really.
+You can read about saving conversation data in a bot <a href="https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-howto-v4-state?view=azure-bot-service-4.0&amp;tabs=javascript&amp;WT.mc_id=m365-35338-rwilliams">here</a></p>
+</blockquote>
+<p>I add below code in <code>index.ts</code>, which creates the objects</p>
+<pre><code class="language-typescript">// Set up bot state
+const memoryStorage = new MemoryStorage();
+const conversationState = new ConversationState(memoryStorage);
+</code></pre>
+<p>When the bot is created, we pass the conversationState object for it to consume.</p>
+<pre><code class="language-typescript">const myBot = new EchoBot(conversationState);
+</code></pre>
+<p>In <code>bot.ts</code> you create state management object for conversation and it's property accessors. These accessors help you set as well as get the associated property from storage and retrieve its current state from cache.</p>
+<pre><code class="language-typescript">// Create conversation object
+this.conversationState = conversationState;
+//Conversation data accessor
+this.conversationDataAccessor = conversationState.createProperty(CONVERSATION_DATA_PROPERTY);
+</code></pre>
+<h3 id="what-your-bot-does-first-when-called">What your bot does first when called</h3>
+<p>The method <code>onMessage</code> which is already present in the <code>bot.ts</code> file is where I put all my initial functionalities in as soon as the bot is called in a message via at mention.
+I store the initiator userId, the question etc.</p>
+<pre><code class="language-typescript">conversationData.question=updatedText;
+conversationData.users = [context.activity.from.id];
+conversationData.response=[];
+//set the conversation data   
+await this.conversationDataAccessor.set(context, conversationData);
+</code></pre>
+<p>I send the base card, which is a form to get the response to the question to all users.</p>
+<h3 id="when-your-bot-notices-your-card-has-refresh-property">When your bot notices your card has refresh property</h3>
+<p>Now comes the really fun bit. We have to override the <code>onInvokeActivity</code> method of the ActivityHandler and add code in to make sure we refresh the base card with a different view based on the action or the user who views the card.
+In this method I am also storing every action and response of the users.</p>
+<pre><code class="language-typescript">conversationData.clickCount = ++clickCount;
+conversationData.users.push(context.activity.from.id);
+conversationData.response.push({name:context.activity.from.name,text:request.action.data.text});
+await this.conversationDataAccessor.set(context, conversationData);
+</code></pre>
+<p>At first the base card or the form is sent. We will store the initiator details and pass their id in the userId property of the refresh object in the card payload of the base card. The bot at first sends the base card to all users, but when an initiator sees the card, the bot immediately refreshes the view for them and shows the summary card. Since the card payload carries the initiator's user id in the refresh payload.</p>
+<p><img alt="initiator-card" src="../images/initiator-view.png" /></p>
+<p>Every other user sees only the base card.</p>
+<p><img alt="base-card" src="../images/base-card.png" /></p>
+<p>For the other users who can respond to the form with a button click, we store the user id and response data in our storage upon their action.
+In the same activity, we do a message edit, which is updating the conversation forcefully which automatically refreshes the view for ALL users with the base card again but we append the new user id, in the userId property of the base card. The bot again sees the base card with userId of the responded user, and also understands they are not the initator so refreshes the base card with a thank you card.</p>
+<p><img alt="initiator-card" src="../images/thank-you.png" /></p>
+<p>For anyone else who has not responded or is not the initiator of the bot, the card will remain the base card and for the users who responded the bot will refresh the view to show a thank you card. </p>
+<p>For the initiator it will be a refreshed summary</p>
+<p><img alt="summary-card" src="../images/summary-card.png" /></p>
+<h3 id="clone-the-source">Clone the source</h3>
+<p>Download or clone the source for above project from my repo 
+<a href="https://github.com/rabwill/cardBot-TS">https://github.com/rabwill/cardBot-TS</a></p>
+<h3 id="register-a-bot">Register a bot</h3>
+<p>You will need a bot registered to test this application. If you have a bot then create a .env file in the root of the cloned project and paste below</p>
+<pre><code class="language-typescript">MicrosoftAppId=&lt;Bot ID&gt;
+MicrosoftAppPassword=&lt;Bot secret&gt;
+
+</code></pre>
+<p>Or to register it manually</p>
+<p>1) Head to <a href="https://portal.azure.com">Azure portal</a></p>
+<p>2)  Create a resource (from dashboard)</p>
+<p>3) Search for <code>Bot channel registration</code> and hit enter</p>
+<p><img alt="search-bot" src="../images/search-bot.png" /></p>
+<p>4) Click Create</p>
+<p>5)  Fill out the info , the messaging endpoint should look something like <code>https://myextension.azurewebsites.net/api/messages</code> where <code>https://myextension.azurewebsites.net</code> is my webservice I plan to host my app and create. More info already covered here <a href="https://docs.microsoft.com/azure/bot-service/bot-service-quickstart-registration?view=azure-bot-service-4.0&amp;WT.mc_id=m365-9118-rwilliams">Bot channels registration</a></p>
+<p><img alt="registration-bot" src="../images/registration.png" /></p>
+<p>6) Once created go to the <code>Channels</code> and configure Microsoft Teams channel (just agree on terms after reading them of course)</p>
+<p><img alt="channels-bot" src="../images/channels.png" /></p>
+<p>7) Next we need to go to the bot's settings and manage the appId and secret (it's like id and password for the app)
+You can see the appId in below screenshot, now to create a secret, let's click on manage.</p>
+<p><img alt="secret-bot" src="../images/secret.png" /></p>
+<p>Once the secret is created, copy immediately. Now make a note of the appId and the secret, we will need it.</p>
+<p><img alt="create-secret-bot" src="../images/create-secret.png" /> </p>
+<h3 id="run-project">Run project</h3>
+<p>Run following scripts one by one.</p>
+<pre><code class="language-nodejs">npm install
+</code></pre>
+<pre><code class="language-nodejs">npm run build
+</code></pre>
+<pre><code class="language-nodejs">npm start
+</code></pre>
+<p>You will see that your local project is now running on localhost:3978.</p>
+<h3 id="ngrok">Ngrok</h3>
+<p>Now in another terminal session run below tunneling command, which then gives you a https url for your local set up.</p>
+<pre><code>  ngrok http 3978 -host-header=localhost:3978 
+</code></pre>
+<p>Copy the ngrok url from the terminal (with https) and paste it before <code>/api/messages</code> in the bot enpoint address. (You can update this in Azure portal)</p>
+<h3 id="microsoft-teams-application">Microsoft Teams application</h3>
+<p>Download the three files in the folder <code>appManifest</code> and update the manifest.json with your botId that you pasted in the env file, your domain url etc. And zip the three files.
+Upload the zip into Teams by sideloading or import app it using the new <a href="https://dev.teams.microsoft.com/apps">Teams developer portal (Preview)</a></p>
+<h3 id="test-the-application">Test the application</h3>
+<p>Add the app into a Microsoft Teams team and invoke it by @mentioning the bot with a question. Use multiple accounts to test out responses. Enjoy 😊</p>
+<p><img alt="uam" src="../images/uam.gif" /> </p>
+<p>The outlook capabilities are not covered in this post, may be this will be a new blog post. Stay tuned. Feel free to follow me on <a href="https://twitter.com/williamsrabia">twitter</a> for regular updates 🐥</p>
+<p>P.S Huge shout out to the engineering team for Adaptive cards and universal actions in Microsoft as well for being so helpful for my content. Please let us know your feedback!</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../spfx/reusable-custom-hooks/" class="btn btn-neutral float-right" title="React Custom Hooks in SPFx">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../me-experience-bot/" class="btn btn-neutral" title="Me experience BOT"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../me-experience-bot/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../spfx/reusable-custom-hooks/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
