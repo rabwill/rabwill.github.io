@@ -26,5 +26,19 @@ nav:
   - 'Deployment gates': 'azure/deployment-gates.md'
 - Developer:
   - 'Developer life made easy': 'developer/developer-life-made-easy.md'
-theme: readthedocs
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+  font:
+    text: Lato
+    code: JetBrains Mono
 
