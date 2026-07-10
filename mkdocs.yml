@@ -36,7 +36,7 @@ plugins:
 
 nav:
   - Home: index.md
-  - Blog: blog/index.md
+  - Writing: writing/index.md
 
 extra_css:
   - stylesheets/extra.css

@@ -19,11 +19,9 @@ html {
   font-size: 0.95rem;
 }
 
-.md-main,
-.md-main__inner,
-.md-content,
-.md-content__inner {
-  background: #000;
+/* Hide auto-generated blog post backlink in Material sidebar. */
+.md-post__back {
+  display: none;
 }
 
 /* Hide the default Material chrome on the homepage only */

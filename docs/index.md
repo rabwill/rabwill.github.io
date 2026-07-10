@@ -11,7 +11,7 @@ title: Rabia Williams
 <div class="rw-topbar">
   <span><strong>rabia williams</strong> · agents / copilot / mcp</span>
   <span>
-    <a href="https://github.com/rabwill">github</a><a href="#blog">writing</a><a href="#connect">connect</a>
+    <a href="https://github.com/rabwill">github</a><a href="writing/">writing</a><a href="#connect">connect</a>
   </span>
 </div>
 
@@ -26,7 +26,7 @@ title: Rabia Williams
         actually hold up outside a demo.
       </p>
       <div class="rw-cta-row">
-        <a class="rw-btn rw-btn-primary" href="#writing">Read the writing</a>
+        <a class="rw-btn rw-btn-primary" href="writing/">Read the writing</a>
         <a class="rw-btn rw-btn-ghost" href="https://github.com/rabwill">GitHub ↗</a>
         <a class="rw-btn rw-btn-ghost" href="https://iknowthisfeeling.com">Substack ↗</a>
       </div>
@@ -71,9 +71,9 @@ title: Rabia Williams
   <div class="rw-section" id="writing">
     <p class="rw-section-label">recent writing</p>
     <div class="rw-log">
-      <a class="rw-log-row" href="blog/hello-world/">
+      <a class="rw-log-row" href="blog/mcp-the-usb-c-for-ai-agents/">
         <span class="rw-log-date">2026-07-10</span>
-        <span class="rw-log-title">Hello, world</span>
+        <span class="rw-log-title">MCP: The USB-C for AI Agents</span>
         <span class="rw-log-arrow">→</span>
       </a>
     </div>
