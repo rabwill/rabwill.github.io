@@ -1,22 +1,91 @@
-#About me
+---
+hide:
+  - navigation
+  - toc
+  - path
+title: Rabia Williams
+---
 
+<div class="rw-hero-page">
+<div class="rw-page">
+<div class="rw-topbar">
+  <span><strong>rabia williams</strong> · agents / copilot / mcp</span>
+  <span>
+    <a href="https://github.com/rabwill">github</a><a href="#blog">writing</a><a href="#connect">connect</a>
+  </span>
+</div>
 
-<img src="./images/me-new.jpeg" style="max-height: 300px;">
+<div class="rw-container">
+  <div class="rw-hero">  
+    <div>
+      <p class="rw-eyebrow">software engineer, ai tooling</p>
+      <h1 class="rw-headline"><span> Rabia Williams<span></h1>
+      <p class="rw-sub">
+        I write code and words about agents, Copilot extensions, Claude
+        and the Model Context Protocol, and the prompting techniques that
+        actually hold up outside a demo.
+      </p>
+      <div class="rw-cta-row">
+        <a class="rw-btn rw-btn-primary" href="#writing">Read the writing</a>
+        <a class="rw-btn rw-btn-ghost" href="https://github.com/rabwill">GitHub ↗</a>
+        <a class="rw-btn rw-btn-ghost" href="https://iknowthisfeeling.com">Substack ↗</a>
+      </div>
+      <figure class="rw-profile">
+        <img src="images/me-new.jpeg" alt="Portrait of Rabia Williams" loading="lazy">
+      </figure>
+    </div>
+    <div class="rw-terminal">
+      <div class="rw-terminal-bar">
+        <span class="rw-dot"></span><span class="rw-dot"></span><span class="rw-dot"></span>
+        <span class="rw-terminal-label">mcp — rabiawilliams.com</span>
+      </div>
+      <div class="rw-terminal-body" id="rw-trace"></div>
+    </div>
+  </div>
+  <div class="rw-section">
+    <p class="rw-section-label">what I build</p>
+    <div class="rw-tools">
+      <div class="rw-tool-card">
+        <p class="rw-tool-name">agents</p>
+        <p class="rw-tool-desc">Autonomous and multi-agent systems — planning, tool use, memory, and the failure modes nobody puts in the blog post.</p>
+        <div class="rw-tags"><span class="rw-tag">orchestration</span><span class="rw-tag">tool-use</span><span class="rw-tag">evals</span></div>
+      </div>
+      <div class="rw-tool-card">
+        <p class="rw-tool-name">copilot extensions</p>
+        <p class="rw-tool-desc">Shipping Copilot extensions that plug real workflows into the editor, not just chat wrappers.</p>
+        <div class="rw-tags"><span class="rw-tag">copilot</span><span class="rw-tag">extensibility</span></div>
+      </div>
+      <div class="rw-tool-card">
+        <p class="rw-tool-name">claude &amp; mcp</p>
+        <p class="rw-tool-desc">Claude-powered apps and Model Context Protocol servers — connecting models to real data and real actions.</p>
+        <div class="rw-tags"><span class="rw-tag">mcp</span><span class="rw-tag">claude</span><span class="rw-tag">apis</span></div>
+      </div>
+      <div class="rw-tool-card">
+        <p class="rw-tool-name">prompting techniques</p>
+        <p class="rw-tool-desc">Prompt patterns and system design that stay reliable under real users and real edge cases.</p>
+        <div class="rw-tags"><span class="rw-tag">reliability</span><span class="rw-tag">patterns</span></div>
+      </div>
+    </div>
+  </div>
 
-Hi there 👋🏽, I am [Rabia Williams](https://github.com/rabwill). 
-Microsoft 365 [Cloud developer advocate](https://developer.microsoft.com/en-us/advocates/rabia-williams) @microsoft , currently based in Brisbane. 
-CLI for Microsoft 365 maintainer, PnP member. I live and breathe the dev community in Microsoft.
+  <div class="rw-section" id="writing">
+    <p class="rw-section-label">recent writing</p>
+    <div class="rw-log">
+      <a class="rw-log-row" href="blog/hello-world/">
+        <span class="rw-log-date">2026-07-10</span>
+        <span class="rw-log-title">Hello, world</span>
+        <span class="rw-log-arrow">→</span>
+      </a>
+    </div>
+  </div>
 
-I like contributing thru [github](https://github.com/rabwill) / [blogs](https://rabwill.github.io/) / [twitter](https://twitter.com/williamsrabia) in my free time , it's my way of detoxing :)
-
-When not coding I love to travel (read: eat and drink) and spend time with my lovely family.
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
-</script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-146817327-1');
-</script>
+  <div class="rw-footer" id="connect">
+    <div>
+      <a href="https://github.com/rabwill">github.com/rabwill</a>
+      <a href="mailto:rabiawilliams@gmail.com">rabiawilliams@gmail.com</a>
+    </div>
+    <div>rabiawilliams.com</div>
+  </div>
+</div>
+</div>
+</div>

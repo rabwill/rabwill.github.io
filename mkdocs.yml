@@ -1,20 +1,52 @@
 site_name: Rabia Williams
 site_url: https://rabiawilliams.com
-nav:
-- Home: 'index.md'
+site_description: Rabia Williams' blog
+repo_url: https://github.com/rabwill/rabwill.github.io
+repo_name: rabwill/rabwill.github.io
+
 theme:
   name: material
+  font: false
   palette:
     - scheme: default
-      primary: teal
-      accent: amber
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
-    - navigation.tabs
-    - navigation.sections
+    - navigation.instant
+    - navigation.tracking
     - navigation.top
-    - search.highlight
     - content.code.copy
-  font:
-    text: Lato
-    code: JetBrains Mono
 
+plugins:
+  - search
+  - blog:
+      blog_dir: blog
+      blog_toc: true
+      post_date_format: long
+      post_url_format: "{slug}"
+      archive: true
+      categories: true
+
+nav:
+  - Home: index.md
+  - Blog: blog/index.md
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/extra.js
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - toc:
+      permalink: true
