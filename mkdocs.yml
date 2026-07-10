@@ -1,0 +1,30 @@
+site_name: Rabia Williams
+site_url: https://rabiawilliams.com
+nav:
+- Home: 'index.md'
+- Teams:
+  - 'O365 Management api': 'teams/o365-management-api-teams-creation.md'
+  - 'Teams directory': 'teams/teams-list.md'
+  - 'Messaging extension using Microsoft Teams Toolkit': 'teams/message-extensions.md'
+  - 'Teams Incoming Webhooks with SPFx': 'teams/spfx-teams-incoming-webhooks.md'
+  - 'DIY GIPHY app for Teams': 'teams/search-msgext-giphy.md'
+  - 'Me experience sample': 'teams/me-experience.md'
+  - 'Me experience BOT': 'teams/me-experience-bot.md'
+  - 'Universal actions in adaptive cards nodejs' : 'teams/uam-bot.md'
+- SPFX:
+  - 'React Custom Hooks in SPFx': 'spfx/reusable-custom-hooks.md'
+  - '1.8.0 library component': 'spfx/library-component.md'
+  - 'Microsoft Graph Toolkit': 'spfx/msgraph-toolkit.md'
+  - 'Retrieve SP Home Site Details using API': 'spfx/get-sp-homesite-details.md'
+  - 'Target Audience React Wrapper': 'spfx/spfx-react-targetaudience.md'
+  - 'Quick and easy sortable list': 'spfx/spfx-quicklinks-propertyfieldorder.md'
+  - 'Web accessibility in React components': 'spfx/accessible-components.md'
+- OfficeCLI:
+  - 'Grant API permissions using Office365 CLI': 'officecli/grant-api-permission.md'
+- Azure:
+  - 'Azure Key Vault NodeJs': 'azure/azure-key-vault-node.md'
+  - 'Deployment gates': 'azure/deployment-gates.md'
+- Developer:
+  - 'Developer life made easy': 'developer/developer-life-made-easy.md'
+theme: readthedocs
+
