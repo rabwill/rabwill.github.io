@@ -136,14 +136,15 @@ html {
 }
 
 .rw-profile {
-  margin: 1.35rem 0 0;
-  width: min(230px, 58vw);
+  margin: 1rem 0 0;
+  width: min(150px, 40vw);
 }
 
 .rw-profile img {
   display: block;
   width: 100%;
   height: auto;
+  max-height: 210px;
   border-radius: 10px;
   border: 1px solid var(--rw-line);
   background: var(--rw-panel);
