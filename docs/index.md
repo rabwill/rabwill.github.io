@@ -1,7 +1,7 @@
 #About me
 
 
-<img src="./images/meNew.jpg" style="max-height: 300px;">
+<img src="./images/me-new.jpeg" style="max-height: 300px;">
 
 Hi there 👋🏽, I am [Rabia Williams](https://github.com/rabwill). 
 Microsoft 365 [Cloud developer advocate](https://developer.microsoft.com/en-us/advocates/rabia-williams) @microsoft , currently based in Brisbane. 
