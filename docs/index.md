@@ -11,8 +11,8 @@ title: Rabia Williams
 <div class="rw-topbar">
   <span><strong>rabia williams</strong> · agents / copilot / mcp</span>
   <span>
-    <a href="https://github.com/rabwill">github</a><a href="writing/">writing</a><a href="https://www.linkedin.com/in/rabiawilliams/">connect</a>
-    <a href="https://iknowthisfeeling.com/">Substack</a>
+    <a href="https://github.com/rabwill">github</a><a href="writing/">tech blogs</a><a href="https://www.linkedin.com/in/rabiawilliams/">connect</a>
+    <a href="https://iknowthisfeeling.com/">substack</a>
   </span>
 </div>
 
@@ -71,7 +71,7 @@ title: Rabia Williams
   </div>
 
   <div class="rw-section" id="writing">
-    <p class="rw-section-label">recent writing</p>
+    <p class="rw-section-label">recent tech blogs</p>
     <div class="rw-log">
       <a class="rw-log-row" href="blog/mcp-the-usb-c-for-ai-agents/">
         <span class="rw-log-date">2026-07-10</span>
