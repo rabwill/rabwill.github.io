@@ -13,9 +13,15 @@ categories:
 
 **One server. Every AI app. No rebuilding.**
 
-Remember the drawer? The one with a tangle of chargers - one for the old phone, one for the camera, one for the headphones you can't even find anymore. Then USB-C came along. One connector. One cable. Everything just plugs in.
+This post is based on the MCP server I built for my own workflow: analysing my Substack notes, spotting what people engage with most, and pulling every signal I can from Substack to shape what I write next. You can find it here: [substack-mcp](https://github.com/rabwill/substack-mcp).
 
-AI is having its USB-C moment. And you don't need to be a developer to see why it matters.
+Remember that drawer full of old chargers? One for a phone, one for a camera, one for headphones you do not even use anymore.
+
+Then USB-C arrived. One connector. One cable. Everything works with it.
+
+That is what MCP feels like for AI tools. The ecosystem keeps growing, but integration is getting simpler.
+
+AI is having its USB-C moment, and you do not need to be a developer to see why it matters.
 
 ## So what actually is MCP?
 
@@ -74,13 +80,15 @@ Build the capability once. Connect it everywhere. Let each assistant do what it'
 
 Curious to build one yourself? It's more approachable than you'd think.
 
-Head to **[Copilot Developer Camp](https://microsoft.github.io/copilot-camp/)** and take the **[MCP Foundations course](https://microsoft.github.io/copilot-camp/pages/extend-m365-copilot/bundle-a/)**. In about four hours you'll:
+Head to **[Copilot Developer Camp](https://microsoft.github.io/copilot-camp/)** and take the **[MCP Foundations course](https://microsoft.github.io/copilot-camp/pages/extend-m365-copilot/bundle-a/)** that I wrote. In about four hours you'll:
 
 1. **Run an MCP server and connect it to an agent in Copilot** - a full, working "ask in plain English, get real answers from your tools" flow.
 2. **Secure the connection** - add OAuth 2.0 and Microsoft Entra ID, so only trusted requests ever reach your server.
 
 Build it once. Plug it in everywhere. Ship it safely.
 
+Reference: [substack-mcp](https://github.com/rabwill/substack-mcp)
+Reference: [Copilot Developer Camp](https://microsoft.github.io/copilot-camp/pages/extend-m365-copilot/)
+
 ---
 
-*Written by Rabia Williams, Senior Cloud Advocate at Microsoft.*
