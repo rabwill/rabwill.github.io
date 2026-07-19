@@ -7,7 +7,7 @@ categories:
   - MCP
 ---
 
-# MCP: The USB-C for AI Agents
+# Why I Built One Substack MCP Server for Four AI Apps
 
 [← Back to Writing](/writing/)
 
@@ -57,7 +57,7 @@ Then I asked it to go deeper, and it reframed the whole thing into a mentoring p
 
 And **Word** turned all of it into a finished newsletter, right inside the document:
 
-![Word with Copilot drafting a monthly newsletter from the notes](../../../images/mcp-blog/word-subsatckagent.png)
+![Word with Copilot drafting a monthly newsletter from the notes](../../../images/mcp-blog/word-substackagent.png)
 *Word - where the insight becomes something I can actually publish.*
 
 Same notes. Four different kinds of intelligence. That's the part that surprised me: the value wasn't only in my data - it was in letting each tool bring its *own* lens to it. And I only had to build the connection once.
@@ -80,15 +80,17 @@ Build the capability once. Connect it everywhere. Let each assistant do what it'
 
 Curious to build one yourself? It's more approachable than you'd think.
 
-Head to **[Copilot Developer Camp](https://microsoft.github.io/copilot-camp/)** and take the **[MCP Foundations course](https://microsoft.github.io/copilot-camp/pages/extend-m365-copilot/bundle-a/)** that I wrote. In about four hours you'll:
+Head to **[Copilot Developer Camp](https://microsoft.github.io/copilot-camp/)** and take the FREE **[MCP Foundations course](https://microsoft.github.io/copilot-camp/pages/extend-m365-copilot/bundle-a/)** that I wrote as part of my day job. In about four hours you'll:
 
 1. **Run an MCP server and connect it to an agent in Copilot** - a full, working "ask in plain English, get real answers from your tools" flow.
 2. **Secure the connection** - add OAuth 2.0 and Microsoft Entra ID, so only trusted requests ever reach your server.
 
 Build it once. Plug it in everywhere. Ship it safely.
 
-Reference: [substack-mcp](https://github.com/rabwill/substack-mcp)
-Reference: [Copilot Developer Camp](https://microsoft.github.io/copilot-camp/pages/extend-m365-copilot/)
+## References
+
+- [Source code for substack-mcp](https://github.com/rabwill/substack-mcp)
+- [Copilot Developer Camp](https://microsoft.github.io/copilot-camp/pages/extend-m365-copilot/)
 
 ---
 
