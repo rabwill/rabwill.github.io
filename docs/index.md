@@ -27,7 +27,7 @@ title: Rabia Williams
         actually hold up outside a demo.
       </p>
       <div class="rw-cta-row">
-        <a class="rw-btn rw-btn-primary" href="writing/">Read the writing</a>
+        <a class="rw-btn rw-btn-primary" href="writing/">Read the tech blogs</a>
         <a class="rw-btn rw-btn-ghost" href="https://github.com/rabwill">GitHub ↗</a>
         <a class="rw-btn rw-btn-ghost" href="https://iknowthisfeeling.com">Substack ↗</a>
           <a class="rw-btn rw-btn-ghost" href="https://www.linkedin.com/in/rabiawilliams/">LinkedIn ↗</a>
