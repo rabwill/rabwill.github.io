@@ -75,7 +75,7 @@ title: Rabia Williams
     <div class="rw-log">
       <a class="rw-log-row" href="blog/authenticated-github-plugin-for-cowork/">
         <span class="rw-log-date">2026-07-21</span>
-        <span class="rw-log-title">I Just Wanted to Audit My Stale GitHub Private Repos — So I Built an Authenticated Cowork Plugin</span>
+        <span class="rw-log-title">Building an Authenticated GitHub MCP Plugin for Cowork</span>
         <span class="rw-log-arrow">→</span>
       </a>
       <a class="rw-log-row" href="blog/mcp-the-usb-c-for-ai-agents/">
