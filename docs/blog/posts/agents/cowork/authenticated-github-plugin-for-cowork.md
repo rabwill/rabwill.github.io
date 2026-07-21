@@ -2,11 +2,17 @@
 title: I Just Wanted to Audit My Stale GitHub Private Repos — So I Built an Authenticated Cowork Plugin
 slug: authenticated-github-plugin-for-cowork
 date: 2026-07-21
-category: Agents, MCP
+categories:
+  - Agents
+  - MCP
 read_time: 5 min read
 ---
 
+[← Back to Writing](/writing/)
+
 # I Just Wanted to Audit My Stale GitHub Private Repos: So I Built an Authenticated Cowork Plugin
+
+:material-clock-outline: **5 min read**
 
 **I wanted to ask Cowork one question about my GitHub repos. Getting there meant teaching it to sign in as me.**
 
@@ -148,3 +154,14 @@ About five minutes of extra setup. Grab the full working plugin and swap in your
 - [GitHub - Creating an OAuth App](https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)
 - [Teams developer portal](https://dev.teams.microsoft.com/tools)
 - [Model Context Protocol](https://modelcontextprotocol.io/)
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-146817327-1');
+</script>
