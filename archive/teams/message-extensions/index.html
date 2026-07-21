@@ -1,0 +1,781 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Rabia Williams' blog">
+      
+      
+      
+        <link rel="canonical" href="https://rabiawilliams.com/archive/teams/message-extensions/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>How to build apps with the Microsoft Teams Toolkit and Visual Studio Code - Rabia Williams</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#how-to-build-apps-with-the-microsoft-teams-toolkit-and-visual-studio-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Rabia Williams" class="md-header__button md-logo" aria-label="Rabia Williams" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Rabia Williams
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              How to build apps with the Microsoft Teams Toolkit and Visual Studio Code
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/rabwill/rabwill.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rabwill/rabwill.github.io
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Rabia Williams" class="md-nav__button md-logo" aria-label="Rabia Williams" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Rabia Williams
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/rabwill/rabwill.github.io" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    rabwill/rabwill.github.io
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../writing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-this-blog-covers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What this blog covers
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What this blog covers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-microsoft-teams-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install Microsoft Teams Toolkit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developer-environment-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Developer environment requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-up-ngrok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set up ngrok
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#details-steps-to-develop-messaging-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Details steps to develop Messaging Extension
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Details steps to develop Messaging Extension">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-new-teams-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a new Teams app
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-toolkit-to-create-a-bot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Toolkit to create a bot
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-create-bot-manually-through-azure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        To create Bot manually through Azure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manage-bots" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manage Bots
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#update-the-manifest-incase-of-an-incomplete-scaffolding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update the manifest incase of an incomplete scaffolding
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Update the manifest incase of an incomplete scaffolding">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-your-app-in-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test your app in Teams
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="how-to-build-apps-with-the-microsoft-teams-toolkit-and-visual-studio-code">How to build apps with the Microsoft Teams Toolkit and Visual Studio Code<a class="headerlink" href="#how-to-build-apps-with-the-microsoft-teams-toolkit-and-visual-studio-code" title="Permanent link">&para;</a></h1>
+<p>Quick start your journey to create <code>Messaging extensions</code> in Microsoft Teams.</p>
+<p><span style="color:grey">Published on 13/9/2020</span></p>
+<blockquote>
+<p>📢 The toolkit has changed since Oct 27 , 2020. Some of the screenshot here will be outdated.<br />
+     Go to my new blog <a href="https://rabiawilliams.com/teams/search-msgext-giphy">Search based message extenion</a> for the new UI experience to create a messaging extension with the new tool experience.
+     The publish folder does not exist anymore (this means you cannot update the manifest file from the project), use the Toolkit to do manifest updates.</p>
+</blockquote>
+<h2 id="what-this-blog-covers">What this blog covers<a class="headerlink" href="#what-this-blog-covers" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension&amp;WT.mc_id=m365-9118-rwilliams">Microsoft Teams Toolkit</a></li>
+<li>Detailed steps to <a href="https://docs.microsoft.com/microsoftteams/platform/messaging-extensions/how-to/create-messaging-extension?WT.mc_id=m365-9118-rwilliams">Create a Microsoft Teams messaging extension</a> using the toolkit</li>
+<li><a href="https://github.com/rabwill/teams-messaging-extension">Sample source code</a></li>
+</ul>
+<h3 id="install-microsoft-teams-toolkit">Install Microsoft Teams Toolkit<a class="headerlink" href="#install-microsoft-teams-toolkit" title="Permanent link">&para;</a></h3>
+<p>Assuming that the code editor of choice is <a href="https://code.visualstudio.com/download?WT.mc_id=m365-9118-rwilliams">Visual Studio Code</a> install the Microsoft Teams Toolkit
+to create, debug and deploy Teams apps directly form your editor.
+You will need Visual Studio Code v1.44 or higher and node.js 6 or higher for starting development.</p>
+<p>Check out the screen below on how to get started with it.
+Click on Extensions icon and search for <code>Teams</code> and install it. </p>
+<p><img alt="teams-toolkit" src="../images/teams-toolkit.png" /></p>
+<h3 id="developer-environment-requirements">Developer environment requirements<a class="headerlink" href="#developer-environment-requirements" title="Permanent link">&para;</a></h3>
+<p>First thing we need to do is , make sure your development environment is set to success. </p>
+<p>You have</p>
+<ul>
+<li>Installed the Microsoft Teams Toolkit in your Visual Studio Code</li>
+<li><a href="https://nodejs.org/en/">Node.js</a> installed (version 6 or higher)</li>
+<li>Set up <a href="https://ngrok.com/docs">ngrok</a>, this is not familiar to you then not to worry , check next section or if you already have this set up ignore the next section.</li>
+<li><a href="https://developer.microsoft.com/microsoft-365/dev-program?WT.mc_id=m365-9118-rwilliams">M365 developer account</a></li>
+</ul>
+<h3 id="set-up-ngrok">Set up ngrok<a class="headerlink" href="#set-up-ngrok" title="Permanent link">&para;</a></h3>
+<p>Why do we need this?
+ngrok exposes local servers behind to the public internet over secure tunnels.
+In short for a teams app to be tested in the teams client,  it needs to be hosted somewhere and ngrok solves the problem while we are still developing the app and needs to test it locally.
+Now that we are convinced why it is used, let's set it up.</p>
+<p>Install ngrok </p>
+<div class="highlight"><pre><span></span><code>npm install ngrok -g
+</code></pre></div>
+<p>Go to <a href="">ngrok</a> sign up and get the authtoken
+Set the authtoken using command </p>
+<p><div class="highlight"><pre><span></span><code>ngrok authtoken &lt;YOUR_AUTHTOKEN&gt;
+</code></pre></div>
+<a href="https://ngrok.com/docs#getting-started-authtoken">More info</a></p>
+<p>You can also use the ngork apis fo advanced scenarios in you code, but that's for later. </p>
+<h3 id="details-steps-to-develop-messaging-extension">Details steps to develop Messaging Extension<a class="headerlink" href="#details-steps-to-develop-messaging-extension" title="Permanent link">&para;</a></h3>
+<h4 id="create-a-new-teams-app">Create a new Teams app<a class="headerlink" href="#create-a-new-teams-app" title="Permanent link">&para;</a></h4>
+<p>Open the extension for Microsoft Teams Toolkit you installed in your VS Code
+Click on the link <code>Create a new Teams app</code></p>
+<p><img alt="teams-create" src="../images/create.png" /></p>
+<p>Give it a name of your choice , my app here is named teams-messaging-extension-sendgift</p>
+<p>You are still in the Toolkit wizard, the next page is to define what kind of capabilities your project can have.
+We can choose <code>Messaging Extension</code> and click Next</p>
+<p><img alt="teams-capabilties" src="../images/cap.png" /></p>
+<p>Next you need to add properties to your project.</p>
+<p><img alt="teams-create-props" src="../images/properties.png" /></p>
+<p><strong>Type of Messaging Extension</strong></p>
+<p>There are two types of Messaging extensions</p>
+<ul>
+<li><a href="https://docs.microsoft.com/microsoftteams/platform/messaging-extensions/how-to/action-commands/define-action-command?WT.mc_id=m365-9118-rwilliams">Action-based</a> commands allow you present your users with a modal popup (called a task module in Teams) to collect or display information, then process their interaction and send information back to Teams</li>
+<li><a href="https://docs.microsoft.com/microsoftteams/platform/messaging-extensions/how-to/search-commands/define-search-command?WT.mc_id=m365-9118-rwilliams">Search-based</a> commands allow your users to search external systems and insert the results of that search into a message in the form of a card.</li>
+</ul>
+<p>We are creating an action-based one here.</p>
+<p><strong>Select where your messsaging extension is hosted</strong></p>
+<p>As already mentioned before, your extension should be hosted as a webservice somewhere (remember why we needed ngrok) and Teams messaging extensions take advantage of the Bot Framework's messaging schema and secure communication protocol so you have to register a bot inorder to use your webservice as a messaging extension. 
+Either click on Login button and sign in using the M365 account you are using, let the toolkit create a new Bot or head to <a href="https://portal.azure.com">Azure portal</a> to create one manually. See below how to do that.</p>
+<h3 id="use-toolkit-to-create-a-bot">Use Toolkit to create a bot<a class="headerlink" href="#use-toolkit-to-create-a-bot" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Login</li>
+</ul>
+<p><img alt="login" src="../images/step1.png" /></p>
+<ul>
+<li>Give a name </li>
+</ul>
+<p>Make sure you don't add space, although the placeholder suggests space, this can cause error.
+<img alt="give-name-bot" src="../images/step2.png" /></p>
+<p>Once done you will get a success message and BotId and Password (make a note of it)</p>
+<p>A sample of how that looks like once you create a bot from the Toolkit.
+<img alt="bot" src="../images/step3.png" /></p>
+<h3 id="to-create-bot-manually-through-azure">To create Bot manually through Azure<a class="headerlink" href="#to-create-bot-manually-through-azure" title="Permanent link">&para;</a></h3>
+<p>1) Head to <a href="https://portal.azure.com">Azure portal</a></p>
+<p>2)  Create a resource (from dashboard)</p>
+<p>3) Search for <code>Bot channel registration</code> and hit enter</p>
+<p><img alt="search-bot" src="../images/search-bot.png" /></p>
+<p>4) Click Create</p>
+<p>5)  Fill out the info , the messaging endpoint should look something like <code>https://myextension.azurewebsites.net/api/messages</code> where <code>https://myextension.azurewebsites.net</code> is my webservice I plan to host my app and create. More info already covered here <a href="https://docs.microsoft.com/azure/bot-service/bot-service-quickstart-registration?view=azure-bot-service-4.0&amp;WT.mc_id=m365-9118-rwilliams">Bot channels registration</a></p>
+<p><img alt="registration-bot" src="../images/registration.png" /></p>
+<p>6) Once created go to the <code>Channels</code> and configure Microsoft Teams channel (just agree on terms after reading them of course)</p>
+<p><img alt="channels-bot" src="../images/channels.png" /></p>
+<p>7) Next we need to go to the bot's settings and manage the appId and secret (it's like id and password for the app)
+You can see the appId in below screenshot, now to create a secret, let's click on manage.</p>
+<p><img alt="secret-bot" src="../images/secret.png" /></p>
+<p>Once the secret is created, copy immediately. Now make a note of the appId and the secret, we will need it.</p>
+<p><img alt="create-secret-bot" src="../images/create-secret.png" /> </p>
+<blockquote>
+<p>Phew we are almost there !!</p>
+</blockquote>
+<p>Come back to our wizard in VS Code</p>
+<p>Choose the second option i.e to use an existing bot and paste the appId and secret we copied earlier and hit finish.
+[tip] - Once your project is up and running, you can check this info in the .env file in the project</p>
+<p><img alt="bot-rego-bot" src="../images/bot-rego-done.png" /></p>
+<p>Success, your project is now fully scaffolded and ready to be used.</p>
+<h3 id="manage-bots">Manage Bots<a class="headerlink" href="#manage-bots" title="Permanent link">&para;</a></h3>
+<p>I personally love using the bot emulator to manage the bots that I create.
+Please go to <a href="https://dev.botframework.com/bots/">https://dev.botframework.com/bots/</a> and manage your bots.
+What I noticed is that using Teams Toolkit, the Bot is created and already connected to Microsoft Teams channels.</p>
+<p><img alt="bot-emulator" src="../images/step4.png" /></p>
+<p>You can also manage bots from within the Toolkit using <a href="https://dev.teams.microsoft.com/appconfiguration.html#/bot/tool">bot management tool</a></p>
+<h2 id="update-the-manifest-incase-of-an-incomplete-scaffolding">Update the manifest incase of an incomplete scaffolding<a class="headerlink" href="#update-the-manifest-incase-of-an-incomplete-scaffolding" title="Permanent link">&para;</a></h2>
+<p>If everything went well with the process of scaffolding the extension, you may find that the manifest file has value for composeExtension, if not the value will be empty array. In such cases add below code.</p>
+<p>Update the composeExtensions with below code to get you started with the extension, with 2 actions</p>
+<ul>
+<li>
+<p>Create card</p>
+</li>
+<li>
+<p>Share message </p>
+</li>
+</ul>
+<p>They both have events associated that will be triggered when any of the action is performed.</p>
+<div class="highlight"><pre><span></span><code> &quot;composeExtensions&quot;: [
+        {
+            &quot;botId&quot;: &quot;{botId0}&quot;,
+            &quot;commands&quot;: [
+                {
+                    &quot;id&quot;: &quot;createCard&quot;,
+                    &quot;type&quot;: &quot;action&quot;,
+                    &quot;context&quot;: [
+                        &quot;compose&quot;
+                    ],
+                    &quot;description&quot;: &quot;Command to run action to create a Card from Compose Box&quot;,
+                    &quot;title&quot;: &quot;Create Card&quot;,
+                    &quot;parameters&quot;: [
+                        {
+                            &quot;name&quot;: &quot;title&quot;,
+                            &quot;title&quot;: &quot;Card title&quot;,
+                            &quot;description&quot;: &quot;Title for the card&quot;,
+                            &quot;inputType&quot;: &quot;text&quot;
+                        },
+                        {
+                            &quot;name&quot;: &quot;subTitle&quot;,
+                            &quot;title&quot;: &quot;Subtitle&quot;,
+                            &quot;description&quot;: &quot;Subtitle for the card&quot;,
+                            &quot;inputType&quot;: &quot;text&quot;
+                        },
+                        {
+                            &quot;name&quot;: &quot;text&quot;,
+                            &quot;title&quot;: &quot;Text&quot;,
+                            &quot;description&quot;: &quot;Text for the card&quot;,
+                            &quot;inputType&quot;: &quot;textarea&quot;
+                        }
+                    ]
+                },
+                {
+                    &quot;id&quot;: &quot;shareMessage&quot;,
+                    &quot;type&quot;: &quot;action&quot;,
+                    &quot;context&quot;: [
+                        &quot;message&quot;
+                    ],
+                    &quot;description&quot;: &quot;Test command to run action on message context (message sharing)&quot;,
+                    &quot;title&quot;: &quot;Share Message&quot;,
+                    &quot;parameters&quot;: [
+                        {
+                            &quot;name&quot;: &quot;includeImage&quot;,
+                            &quot;title&quot;: &quot;Include Image&quot;,
+                            &quot;description&quot;: &quot;Include image in Hero Card&quot;,
+                            &quot;inputType&quot;: &quot;toggle&quot;
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+</code></pre></div>
+<h3 id="test-your-app-in-teams">Test your app in Teams<a class="headerlink" href="#test-your-app-in-teams" title="Permanent link">&para;</a></h3>
+<p>Now that we have a project in hand, let us test this app so we can play with it further.</p>
+<ul>
+<li>open the terminal and go to the location of the current project , run one time to install dependencies</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code>npm install
+</code></pre></div>
+Then to serve it from local run, </p>
+<div class="highlight"><pre><span></span><code>npm start
+</code></pre></div>
+<p>You will see that your local project is now running on localhost:3978 (you can update this port in index.js file). It's still not ready to test.</p>
+<p>Now in another terminal session run below tunneling command, which then gives you a https url for your local set up.</p>
+<div class="highlight"><pre><span></span><code>ngrok http -host-header=rewrite 3978
+</code></pre></div>
+<p><img alt="ngrok-bot" src="../images/ngrok.png" /></p>
+<ul>
+<li>Find the <code>development.zip</code> in the <em>.publish</em> folder and upload it to Teams in the Apps icon click <code>Upload a custom app</code></li>
+</ul>
+<p><img alt="upload" src="../images/upload.png" /></p>
+<ul>
+<li>Click on the Apps icon again and search for AppStudio and open it</li>
+</ul>
+<p><img alt="appstudio" src="../images/appstudio.png" /></p>
+<ul>
+<li>Go to manifest editor and Edit your app that you just uploaded.</li>
+</ul>
+<p><img alt="manifest-editor" src="../images/manifest-editor.png" /></p>
+<ul>
+<li>Copy the ngrok url from the terminal (with https) and paste it before /api/messages in the bot enpoint address. (You can update this in Azure portal as well)</li>
+</ul>
+<p><img alt="manifest-edited" src="../images/manifest-edited.png" /></p>
+<p><img alt="manifest-edited" src="../images/ngrok-url-manifest.png" /></p>
+<p><strong>OR</strong></p>
+<p><img alt="zure-end-point" src="../images/azure-end-point.png" /></p>
+<ul>
+<li>Now go to a chat window and search for your app/you may already find it.</li>
+</ul>
+<p><img alt="extension" src="../images/extension.png" /></p>
+<ul>
+<li>This is a form sample (action-based) so fill out the form and submit.</li>
+</ul>
+<p><img alt="form" src="../images/popup.png" /></p>
+<ul>
+<li>and you can now see the card in the chat area, hit send and the card is sent to the recipient </li>
+</ul>
+<p><img alt="chat" src="../images/card.png" /></p>
+<p><strong>You have successfully created your first messing extension</strong></p>
+<p>In the next post, we can deep dive into updates to the sample and also how to packaging, deploy to the cloud. Watch this space !</p>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-146817327-1">
+</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-146817327-1');
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../javascripts/extra.js"></script>
+      
+    
+  </body>
+</html>
