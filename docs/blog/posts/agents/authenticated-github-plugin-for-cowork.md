@@ -16,10 +16,9 @@ read_time: 5 min read
 
 **This is a reference walkthrough for wiring up authenticated access in a Cowork plugin — specifically, connecting to GitHub's API as a signed-in user via OAuthPluginVault.**
 
-I wanted to use Cowork to query my private GitHub repos — things like finding stale repositories or spotting outdated tech stacks. But Cowork's default connectors only work anonymously, which means public repos only. Private data requires the plugin to authenticate as a specific user.
+I wanted to use Cowork to query my private GitHub repos — things like finding stale repositories or spotting outdated tech stacks. But Cowork by default work anonymously, which means public repos only. Private data requires the plugin to authenticate as a specific user.
 
-So I built a plugin that does that. What follows is exactly how the OAuth wiring works, step by step. It's a narrow use case (GitHub private repos via a Cowork plugin), but the OAuthPluginVault pattern applies to any service that uses OAuth.
-
+So I built a plugin for Cowork that does that. What follows is exactly how the OAuth wiring works, step by step. It's a narrow use case (GitHub private repos via a Cowork plugin), but the OAuthPluginVault pattern applies to any service that uses OAuth.
 
 
 ## Quick context: what's a Cowork plugin?
@@ -33,7 +32,7 @@ The simplest connectors need no login at all - point at a public endpoint and yo
 
 ## The first attempt: browser sign-in works, but I wanted more control
 
-My first version of this plugin had no authentication configured. When I asked about private repos, Cowork checked for an existing GitHub session, didn't find one, and prompted me to sign in via the browser. Once I did — it worked.
+When I asked about private repos, Cowork checked for an existing GitHub session, didn't find one, and prompted me to sign in via the browser. Once I did — it worked.
 
 So why not stop there? Because that sign-in is tied to the browser session. I wanted OAuthPluginVault wiring instead: credentials stored in the Teams developer portal, a proper token exchange per user, and a clear record of what scopes were granted.
 
@@ -129,11 +128,10 @@ Remember that `repo` scope I set in the Teams developer portal back in Step 2? I
 
 This is a real tradeoff, not a footnote. For a personal experiment it's acceptable; for anything shared or production-facing, you'd want to explore GitHub Apps (which offer fine-grained permissions) instead of classic OAuth Apps. That's a meaningfully different integration path.
 
-Also worth noting: the setup isn't five minutes if you're unfamiliar with the Teams developer portal or OAuth flows generally. Budget time for reading docs, debugging callback URLs, and understanding what each scope actually grants.
 
 ## Why this walkthrough exists
 
-The OAuthPluginVault wiring isn't complicated once you've done it, but the documentation is scattered across GitHub's OAuth docs, the Teams developer portal, and Cowork's plugin format. This post puts the three pieces in one place. The GitHub-specific use case is just a concrete example — the pattern (register OAuth app → store credentials in Teams portal → reference the ID in your connector) is the same for any OAuth-based service.
+The OAuthPluginVault wiring isn't complicated once you've done it, but the documentation is scattered across. This post puts the three pieces in one place. The GitHub-specific use case is just a concrete example — the pattern (register OAuth app → store credentials in Teams portal → reference the ID in your connector) is the same for any OAuth-based service.
 
 ## If you want to do the same
 
