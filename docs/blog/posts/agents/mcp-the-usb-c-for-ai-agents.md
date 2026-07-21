@@ -1,15 +1,18 @@
 ---
 title: "MCP: The USB-C for AI Agents"
-date:
-  created: 2026-07-10
+slug: mcp-the-usb-c-for-ai-agents
+date: 2026-07-10
 categories:
   - Agents
   - MCP
+read_time: 3 min read
 ---
 
 # Why I Built One Substack MCP Server for Four AI Apps
 
 [← Back to Writing](/writing/)
+
+:material-clock-outline: **3 min read**
 
 **One server. Every AI app. No rebuilding.**
 
