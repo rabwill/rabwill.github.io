@@ -73,6 +73,11 @@ title: Rabia Williams
   <div class="rw-section" id="writing">
     <p class="rw-section-label">recent tech blogs</p>
     <div class="rw-log">
+      <a class="rw-log-row" href="blog/authenticated-github-plugin-for-cowork/">
+        <span class="rw-log-date">2026-07-21</span>
+        <span class="rw-log-title">I Just Wanted to Audit My Stale GitHub Private Repos — So I Built an Authenticated Cowork Plugin</span>
+        <span class="rw-log-arrow">→</span>
+      </a>
       <a class="rw-log-row" href="blog/mcp-the-usb-c-for-ai-agents/">
         <span class="rw-log-date">2026-07-10</span>
         <span class="rw-log-title">Why I Built One Substack MCP Server for Four AI Apps</span>
