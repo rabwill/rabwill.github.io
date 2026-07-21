@@ -1,5 +1,5 @@
 ---
-title: I Just Wanted to Audit My Stale GitHub Private Repos — So I Built an Authenticated Cowork Plugin
+title: Building an Authenticated GitHub MCP Plugin for Cowork
 slug: authenticated-github-plugin-for-cowork
 date: 2026-07-21
 categories:
@@ -10,19 +10,15 @@ read_time: 5 min read
 
 [← Back to Writing](/writing/)
 
-# I Just Wanted to Audit My Stale GitHub Private Repos: So I Built an Authenticated Cowork Plugin
+# Building an Authenticated GitHub MCP Plugin for Cowork
 
 :material-clock-outline: **5 min read**
 
-**I wanted to ask Cowork one question about my GitHub repos. Getting there meant teaching it to sign in as me.**
+**This is a reference walkthrough for wiring up authenticated access in a Cowork plugin — specifically, connecting to GitHub's API as a signed-in user via OAuthPluginVault.**
 
-I had a simple ask for Cowork:
+I wanted to use Cowork to query my private GitHub repos — things like finding stale repositories or spotting outdated tech stacks. But Cowork's default connectors only work anonymously, which means public repos only. Private data requires the plugin to authenticate as a specific user.
 
-> "Find my private repos that haven't had a commit since before 2024-01-01. For each one, make a table with: repo name, last updated date, primary language, and one-line description. Then add a column flagging whether the tech stack looks outdated (e.g., unmaintained framework, EOL language version, dependency now widely deprecated) — and briefly say why."
-
-That's not a hard question. I know the answer exists - it's sitting in my GitHub account. But Cowork couldn't see it, because there was no plugin connecting it to GitHub as *me*. Every connector I tried either didn't exist or worked anonymously - same result for me, you, or a stranger. Public repos only. My private stuff? Invisible.
-
-So I built a plugin that signs in as me. This is the story of getting from "Cowork can't see my repos" to "Cowork just audited my entire private account and flagged the rot."
+So I built a plugin that does that. What follows is exactly how the OAuth wiring works, step by step. It's a narrow use case (GitHub private repos via a Cowork plugin), but the OAuthPluginVault pattern applies to any service that uses OAuth.
 
 
 
@@ -35,11 +31,13 @@ Copilot Cowork can be extended with plugins - small packages that teach it new t
 
 The simplest connectors need no login at all - point at a public endpoint and you're done. Fine for public docs. Not fine for a question about *my* private repos.
 
-## The first attempt: anonymous, and useless for this
+## The first attempt: browser sign-in works, but I wanted more control
 
-My first version of this plugin pointed at GitHub with zero authentication. Ask it to find a popular open source repo - it did. Ask it to audit my private repos for stale tech stacks - nothing. It couldn't see what it wasn't allowed to see, because it never proved who was asking.
+My first version of this plugin had no authentication configured. When I asked about private repos, Cowork checked for an existing GitHub session, didn't find one, and prompted me to sign in via the browser. Once I did — it worked.
 
-That's correct behavior. But it meant I couldn't ask my actual question. The whole point was the private stuff - which meant the plugin needed to sign in as *me*.
+So why not stop there? Because that sign-in is tied to the browser session. I wanted OAuthPluginVault wiring instead: credentials stored in the Teams developer portal, a proper token exchange per user, and a clear record of what scopes were granted.
+
+That meant the plugin needed its own OAuth registration.
 
 ## What it took to get authentication working
 
@@ -113,29 +111,29 @@ The first time you prompt Cowork to use the plugin, it'll show a **Sign in requi
 
 ![image for sign in](../../../images/cowork/cowork-gh-signin.png)
 
-## The moment of truth
+## Testing it
 
-With the plugin uploaded and authenticated, I asked the question I'd been building toward:
+With the plugin uploaded and authenticated, I asked:
 
 > "Find my private repos that haven't had a commit since before 2024-01-01. For each one, make a table with: repo name, last updated date, primary language, and one-line description. Then add a column flagging whether the tech stack looks outdated (e.g., unmaintained framework, EOL language version, dependency now widely deprecated) — and briefly say why."
 
 ![Image of response](../../../images/cowork/response.png)
 
-It came back with a real table. Private repos I hadn't touched in over a year, flagged with outdated frameworks and EOL dependencies. Stuff anonymous access could never have surfaced - because it can't see a private repo no matter how nicely you ask.
-
-That's when it stopped being a plugin project and became something I actually use.
+It returned a table of private repos with last-updated dates and language info. The "outdated tech" flagging is only as good as the model's knowledge — it's pattern-matching on framework names, not actually checking dependency trees — but for a quick triage of what to look at first, it was useful enough.
 
 
 
-## The caveat worth knowing
+## The costs worth knowing
 
-Remember that `repo` scope I set in the Teams developer portal back in Step 2? It's blunt on purpose - it's the only way a classic GitHub OAuth App can see private repos at all. There's no "read-only" version. Granting it technically hands the plugin write access too - push, delete, the works - even though all we asked it to do was search.
+Remember that `repo` scope I set in the Teams developer portal back in Step 2? It's blunt on purpose — it's the only way a classic GitHub OAuth App can see private repos at all. There's no "read-only" version. Granting it technically hands the plugin write access too — push, delete, the works — even though all we asked it to do was search.
 
-For a personal project or a demo, that tradeoff didn't bother me. Closer to production, I'd want to think harder about it.
+This is a real tradeoff, not a footnote. For a personal experiment it's acceptable; for anything shared or production-facing, you'd want to explore GitHub Apps (which offer fine-grained permissions) instead of classic OAuth Apps. That's a meaningfully different integration path.
 
-## Why I bothered
+Also worth noting: the setup isn't five minutes if you're unfamiliar with the Teams developer portal or OAuth flows generally. Budget time for reading docs, debugging callback URLs, and understanding what each scope actually grants.
 
-I could have kept clicking through GitHub manually to figure out which repos were gathering dust. But I have a lot of repos, and "which ones use outdated tech" isn't a question GitHub's UI answers in one shot. Cowork answered it in one prompt - once it could actually see my account.
+## Why this walkthrough exists
+
+The OAuthPluginVault wiring isn't complicated once you've done it, but the documentation is scattered across GitHub's OAuth docs, the Teams developer portal, and Cowork's plugin format. This post puts the three pieces in one place. The GitHub-specific use case is just a concrete example — the pattern (register OAuth app → store credentials in Teams portal → reference the ID in your connector) is the same for any OAuth-based service.
 
 ## If you want to do the same
 
@@ -143,10 +141,10 @@ The steps again, stripped down:
 
 1. Register an OAuth app with whatever service you're connecting to
 2. Register those credentials in the Teams developer portal and grab the reference ID
-3. Flip the authorization type in your connector config
-4. Ask a question only *your* login could answer
+3. Flip the authorization type in your connector config from `None` to `OAuthPluginVault`
+4. Test with a query that requires authenticated access
 
-About five minutes of extra setup. Grab the full working plugin and swap in your own reference ID: **[github.com/rabwill/cowork-github-plugin](https://github.com/rabwill/cowork-github-plugin)**
+Grab the full working plugin and swap in your own reference ID: **[github.com/rabwill/cowork-github-plugin](https://github.com/rabwill/cowork-github-plugin)**
 
 ## References
 

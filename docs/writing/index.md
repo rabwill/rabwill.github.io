@@ -4,9 +4,9 @@ title: Writing
 
 # Writing
 
-## [I Just Wanted to Audit My Stale GitHub Private Repos — So I Built an Authenticated Cowork Plugin](/blog/authenticated-github-plugin-for-cowork/)
+## [Building an Authenticated GitHub MCP Plugin for Cowork](/blog/authenticated-github-plugin-for-cowork/)
 
-I wanted to ask Cowork one question about my GitHub repos. Getting there meant teaching it to sign in as me.
+A step-by-step reference for wiring up authenticated access in a Cowork plugin, connecting to GitHub's API as a signed-in user via OAuthPluginVault.
 
 ---
 
