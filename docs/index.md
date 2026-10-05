@@ -12,7 +12,7 @@ title: Rabia Williams
   <span><strong>rabia williams</strong> · agents / copilot / mcp</span>
   <span>
     <a href="https://github.com/rabwill">github</a><a href="writing/">tech blogs</a><a href="https://www.linkedin.com/in/rabiawilliams/">connect</a>
-    <a href="https://iknowthisfeeling.com/">substack</a>
+    <a href="https://dailysanskrit.com/">substack</a>
   </span>
 </div>
 
@@ -29,7 +29,7 @@ title: Rabia Williams
       <div class="rw-cta-row">
         <a class="rw-btn rw-btn-primary" href="writing/">Read the tech blogs</a>
         <a class="rw-btn rw-btn-ghost" href="https://github.com/rabwill">GitHub ↗</a>
-        <a class="rw-btn rw-btn-ghost" href="https://iknowthisfeeling.com">Substack ↗</a>
+        <a class="rw-btn rw-btn-ghost" href="https://dailysanskrit.com">Substack ↗</a>
           <a class="rw-btn rw-btn-ghost" href="https://www.linkedin.com/in/rabiawilliams/">LinkedIn ↗</a>
       </div>
       <figure class="rw-profile">
