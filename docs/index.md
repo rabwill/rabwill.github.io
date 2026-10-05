@@ -33,7 +33,7 @@ title: Rabia Williams
           <a class="rw-btn rw-btn-ghost" href="https://www.linkedin.com/in/rabiawilliams/">LinkedIn ↗</a>
       </div>
       <figure class="rw-profile">
-        <img src="images/me-new.jpeg" alt="Portrait of Rabia Williams" loading="lazy">
+        <img src="images/rabia-latest.jpg" alt="Portrait of Rabia Williams" loading="lazy">
       </figure>
     </div>
     <div class="rw-terminal">
